@@ -206,28 +206,28 @@ class ControllerProductQuickView extends Controller {
 
 		$this->load->model('tool/image');
 
-		// if ($product_info['image']) {
-		// 	$data['popup'] = $this->model_tool_image->resize($product_info['image'], $this->config->get($this->config->get('config_theme') . '_image_popup_width'), $this->config->get($this->config->get('config_theme') . '_image_popup_height'));
-		// } else {
-		// 	$data['popup'] = '';
-		// }
+		if ($product_info['image']) {
+			$data['popup'] = $this->model_tool_image->resize($product_info['image'], $this->config->get($this->config->get('config_theme') . '_image_popup_width'), $this->config->get($this->config->get('config_theme') . '_image_popup_height'));
+		} else {
+			$data['popup'] = '';
+		}
 
-		// if ($product_info['image']) {
-		// 	$data['thumb'] = $this->model_tool_image->resize($product_info['image'], $this->config->get($this->config->get('config_theme') . '_image_thumb_width'), $this->config->get($this->config->get('config_theme') . '_image_thumb_height'));
-		// } else {
-		// 	$data['thumb'] = '';
-		// }
+		if ($product_info['image']) {
+			$data['thumb'] = $this->model_tool_image->resize($product_info['image'], $this->config->get($this->config->get('config_theme') . '_image_thumb_width'), $this->config->get($this->config->get('config_theme') . '_image_thumb_height'));
+		} else {
+			$data['thumb'] = '';
+		}
 
-		// $data['images'] = array();
+		$data['images'] = array();
 
-		// $results = $this->model_catalog_product->getProductImages($product_id);
+		$results = $this->model_catalog_product->getProductImages($product_id);
 
-		// foreach ($results as $result) {
-		// 	$data['images'][] = array(
-		// 		'popup' => $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_popup_width'), $this->config->get($this->config->get('config_theme') . '_image_popup_height')),
-		// 		'thumb' => $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_additional_width'), $this->config->get($this->config->get('config_theme') . '_image_additional_height'))
-		// 	);
-		// }
+		foreach ($results as $result) {
+			$data['images'][] = array(
+				'popup' => $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_popup_width'), $this->config->get($this->config->get('config_theme') . '_image_popup_height')),
+				'thumb' => $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_additional_width'), $this->config->get($this->config->get('config_theme') . '_image_additional_height'))
+			);
+		}
 		if ($product_info['quantity'] <= 0) {
 			$data['stock'] = $product_info['stock_status'];
 		} elseif ($this->config->get('config_stock_display')) {
