@@ -228,6 +228,13 @@ class ControllerProductQuickView extends Controller {
 		// 		'thumb' => $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_additional_width'), $this->config->get($this->config->get('config_theme') . '_image_additional_height'))
 		// 	);
 		// }
+		if ($product_info['quantity'] <= 0) {
+			$data['stock'] = $product_info['stock_status'];
+		} elseif ($this->config->get('config_stock_display')) {
+			$data['stock'] = $product_info['quantity'];
+		} else {
+			$data['stock'] = $this->language->get('text_instock');
+		}
 
 		if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
 			$data['price'] = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
