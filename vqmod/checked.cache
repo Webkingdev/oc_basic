@@ -234,3 +234,8 @@ catalog\model\tool\upload.php
 catalog\view\theme\default\template\common\cart.tpl
 catalog\view\theme\mystore\template\common\header.tpl
 catalog\view\theme\default\template\common\home.tpl
+admin\controller\common\logout.php
+admin\controller\common\login.php
+admin\language\en-gb\common\login.php
+admin\language\ru-ru\common\login.php
+admin\view\template\common\login.tpl
