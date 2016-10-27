@@ -220,7 +220,7 @@ class ControllerProductQuickView extends Controller {
 
 		// $data['images'] = array();
 
-		// $results = $this->model_catalog_product->getProductImages($this->request->get['product_id']);
+		// $results = $this->model_catalog_product->getProductImages($product_id);
 
 		// foreach ($results as $result) {
 		// 	$data['images'][] = array(
@@ -228,6 +228,68 @@ class ControllerProductQuickView extends Controller {
 		// 		'thumb' => $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_additional_width'), $this->config->get($this->config->get('config_theme') . '_image_additional_height'))
 		// 	);
 		// }
+
+		if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
+			$data['price'] = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+		} else {
+			$data['price'] = false;
+		}
+
+		if ((float)$product_info['special']) {
+			$data['special'] = $this->currency->format($this->tax->calculate($product_info['special'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+		} else {
+			$data['special'] = false;
+		}
+
+		if ($this->config->get('config_tax')) {
+			$data['tax'] = $this->currency->format((float)$product_info['special'] ? $product_info['special'] : $product_info['price'], $this->session->data['currency']);
+		} else {
+			$data['tax'] = false;
+		}
+		$discounts = $this->model_catalog_product->getProductDiscounts($product_id);
+
+		$data['discounts'] = array();
+
+		foreach ($discounts as $discount) {
+			$data['discounts'][] = array(
+				'quantity' => $discount['quantity'],
+				'price'    => $this->currency->format($this->tax->calculate($discount['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency'])
+			);
+		}
+
+		if ($product_info['minimum']) {
+			$data['minimum'] = $product_info['minimum'];
+		} else {
+			$data['minimum'] = 1;
+		}
+
+		$data['review_status'] = $this->config->get('config_review_status');
+
+		if ($this->config->get('config_review_guest') || $this->customer->isLogged()) {
+			$data['review_guest'] = true;
+		} else {
+			$data['review_guest'] = false;
+		}
+
+		if ($this->customer->isLogged()) {
+			$data['customer_name'] = $this->customer->getFirstName() . '&nbsp;' . $this->customer->getLastName();
+		} else {
+			$data['customer_name'] = '';
+		}
+
+		$data['reviews'] = sprintf($this->language->get('text_reviews'), (int)$product_info['reviews']);
+		$data['rating'] = (int)$product_info['rating'];
+
+		// Captcha
+		if ($this->config->get($this->config->get('config_captcha') . '_status') && in_array('review', (array)$this->config->get('config_captcha_page'))) {
+			$data['captcha'] = $this->load->controller('extension/captcha/' . $this->config->get('config_captcha'));
+		} else {
+			$data['captcha'] = '';
+		}
+
+		$data['share'] = $this->url->link('product/product', 'product_id=' . (int)$product_id);
+
+		$data['attribute_groups'] = $this->model_catalog_product->getProductAttributes($product_id);
 
 		$json['html'] = $this->load->view('product/quick_view', $data);
 		$this->response->addHeader('Content-Type: application/json');
