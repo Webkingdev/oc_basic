@@ -165,6 +165,31 @@ class ControllerProductQuickView extends Controller {
 
 		$data['attribute_groups'] = $this->model_catalog_product->getProductAttributes($product_id);
 
+
+		$data['tags'] = array();
+
+		if ($product_info['tag']) {
+			$tags = explode(',', $product_info['tag']);
+
+			foreach ($tags as $tag) {
+				$data['tags'][] = array(
+					'tag'  => trim($tag),
+					'href' => $this->url->link('product/search', 'tag=' . trim($tag))
+				);
+			}
+		}
+
+		$data['recurrings'] = $this->model_catalog_product->getProfiles($product_id);
+
+		$this->model_catalog_product->updateViewed($product_id);
+
+		$data['column_left'] = $this->load->controller('common/column_left');
+		$data['column_right'] = $this->load->controller('common/column_right');
+		$data['content_top'] = $this->load->controller('common/content_top');
+		$data['content_bottom'] = $this->load->controller('common/content_bottom');
+		$data['footer'] = $this->load->controller('common/footer');
+		$data['header'] = $this->load->controller('common/header');
+
 		$json['html'] = $this->load->view('product/quick_view', $data);
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
