@@ -768,3 +768,22 @@ h2.price {
 	background-image: none;
 	background-color: #df5c39;
 }
+
+.quick_view {
+	background: #fff;
+	z-index: 100;
+	width: 80vw;
+	height: 80vh;
+	top: 10vh;
+	left: 10vw;
+	overflow: auto;
+	position: fixed;
+	border: 1px solid #b7b7b7;
+}
+.quick_view .quick_view_background {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
