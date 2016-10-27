@@ -116,7 +116,7 @@ div.required .control-label:before {
 }
 #top .btn-link strong {
 	font-size: 14px;
-        line-height: 14px;
+		line-height: 14px;
 }
 #top-links {
 	padding-top: 6px;
@@ -314,7 +314,7 @@ div.required .control-label:before {
 footer {
 	margin-top: 30px;
 	padding-top: 30px;
-	background-color: #303030;
+	background-color: #5d5555;
 	border-top: 1px solid #ddd;
 	color: #e2e2e2;
 }
@@ -323,7 +323,8 @@ footer hr {
 	border-bottom: 1px solid #666;
 }
 footer a {
-	color: #ccc;
+	color: #fff;
+	text-decoration: underline;
 }
 footer a:hover {
 	color: #fff;
@@ -333,6 +334,25 @@ footer h5 {
 	font-size: 13px;
 	font-weight: bold;
 	color: #fff;
+}
+footer{
+	color: #fff;
+	font-size: 1.1em;
+	line-height: 2.2em;
+}
+footer .prava p{
+	margin: 0;
+}
+footer .prava ul{
+	margin-top: 20px;
+}
+footer .big_text{
+	font-size: 1.2em;
+}
+footer .contacts li span{
+	font-size: 1.4em;
+	margin-right: 10px;
+	vertical-align: middle;
 }
 /* alert */
 .alert {
@@ -716,21 +736,21 @@ h2.price {
 
 /* fixed colum left + content + right*/
 @media (min-width: 768px) {
-    #column-left  .product-layout .col-md-3 {
-       width: 100%;
-    }
+	#column-left  .product-layout .col-md-3 {
+	   width: 100%;
+	}
 
 	#column-left + #content .product-layout .col-md-3 {
-       width: 50%;
-    }
+	   width: 50%;
+	}
 
 	#column-left + #content + #column-right .product-layout .col-md-3 {
-       width: 100%;
-    }
+	   width: 100%;
+	}
 
-    #content + #column-right .product-layout .col-md-3 {
-       width: 100%;
-    }
+	#content + #column-right .product-layout .col-md-3 {
+	   width: 100%;
+	}
 }
 
 /* fixed product layouts used in left and right columns */
@@ -745,6 +765,6 @@ h2.price {
 
 /* Missing focus and border color to overwrite bootstrap */
 .btn-info:hover, .btn-info:active, .btn-info.active, .btn-info.disabled, .btn-info[disabled] {
-    background-image: none;
-    background-color: #df5c39;
+	background-image: none;
+	background-color: #df5c39;
 }
