@@ -11,6 +11,7 @@ $_['thousand_point']		= '';
 
 // Text
 $_['text_home']				= '<i class="fa fa-home"></i>';
+$_['text_close']					= 'Закрыть';
 $_['text_yes']					= 'Да';
 $_['text_no']					= 'Нет';
 $_['text_none']				= ' --- Не выбрано --- ';
@@ -27,6 +28,7 @@ $_['button_continue']				= 'Продолжить';
 $_['button_cart']						= 'Купить';
 $_['button_cancel']					= 'Отмена';
 $_['button_compare']				= 'В сравнение';
+$_['button_quick_view']				= 'Быстрый просмотр';
 $_['button_wishlist']				= 'В закладки';
 $_['button_checkout']				= 'Оформление заказа';
 $_['button_confirm']				= 'Подтверждение заказа';
