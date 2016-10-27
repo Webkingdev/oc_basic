@@ -196,3 +196,4 @@ catalog\view\theme\default\template\product\category.tpl
 catalog\view\theme\default\template\product\category.tpl
 catalog\controller\product\quick_view.php
 catalog\view\theme\default\template\product\quick_view.tpl
+system\startup.php
