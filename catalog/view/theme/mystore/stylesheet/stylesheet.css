@@ -820,8 +820,29 @@ h2.price {
     right: 5px;
     height: 26px;
     z-index: 100;
+    background: none;
+    border: none;
 }
-.quick_view .content {
-	max-height: calc(80vh - 40px);
+.quick_view .content h1, h2 {
+	margin-top: 0px;
+}
+.quick_view .content .btn-group {
+	margin-bottom: 10px;
+}
+.quick_view .tab-content {
+    max-height: calc(80vh - 475px);
     overflow: auto;
+}
+.quick_view .form-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.quick_view .form-group .control-label {
+	width: 100%;
+}
+.quick_view .form-group .form-control,
+.quick_view .btn-primary {
+	width: 48%;
+    height: 40px;
 }
