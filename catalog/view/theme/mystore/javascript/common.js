@@ -292,9 +292,11 @@ var wishlist = {
 				$('#wishlist-total').attr('title', json['total']);
 
 				$('html, body').animate({ scrollTop: 0 }, 'slow');
+				quick_view.close();
 			},
 			error: function(xhr, ajaxOptions, thrownError) {
 				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+				quick_view.close();
 			}
 		});
 	},
@@ -320,9 +322,11 @@ var compare = {
 
 					$('html, body').animate({ scrollTop: 0 }, 'slow');
 				}
+				quick_view.close();
 			},
 			error: function(xhr, ajaxOptions, thrownError) {
 				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+				quick_view.close();
 			}
 		});
 	},

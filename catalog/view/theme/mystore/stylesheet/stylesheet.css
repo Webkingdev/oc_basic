@@ -806,7 +806,7 @@ h2.price {
 .quick_view .container {
 	background: #fff;
 	width: 80vw;
-	max-height: 80vh;
+	height: 80vh;
 	top: 10vh;
 	left: 10vw;
 	position: fixed;

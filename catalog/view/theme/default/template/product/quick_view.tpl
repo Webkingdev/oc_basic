@@ -37,9 +37,9 @@
 					<?php if ($attribute_groups) { ?>
 					<li><a href="#tab-specification" data-toggle="tab"><?php echo $tab_attribute; ?></a></li>
 					<?php } ?>
-					<?php if ($review_status) { ?>
+					<!-- <?php if ($review_status) { ?>
 					<li><a href="#tab-review" data-toggle="tab"><?php echo $tab_review; ?></a></li>
-					<?php } ?>
+					<?php } ?> -->
 					</ul>
 					<div class="tab-content">
 					<div class="tab-pane active" id="tab-description"><?php echo $description; ?></div>
@@ -131,24 +131,24 @@
 						<div class="alert alert-info"><i class="fa fa-info-circle"></i> <?php echo $text_minimum; ?></div>
 						<?php } ?>
 					</div>
-					<?php if ($review_status) { ?>
+					<!-- <?php if ($review_status) { ?>
 					<div class="rating">
-					<p>
-						<?php for ($i = 1; $i <= 5; $i++) { ?>
-						<?php if ($rating < $i) { ?>
-						<span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-						<?php } else { ?>
-						<span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-						<?php } ?>
-						<?php } ?>
-						<a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $reviews; ?></a> / <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $text_write; ?></a></p>
-					<hr>
-					<!-- AddThis Button BEGIN -->
-					<div class="addthis_toolbox addthis_default_style" data-url="<?php echo $share; ?>"><a class="addthis_button_facebook_like" fb:like:layout="button_count"></a> <a class="addthis_button_tweet"></a> <a class="addthis_button_pinterest_pinit"></a> <a class="addthis_counter addthis_pill_style"></a></div>
-					<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-515eeaf54693130e"></script>
-					<!-- AddThis Button END -->
+						<p>
+							<?php for ($i = 1; $i <= 5; $i++) { ?>
+							<?php if ($rating < $i) { ?>
+							<span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
+							<?php } else { ?>
+							<span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+							<?php } ?>
+							<?php } ?>
+							<a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $reviews; ?></a> / <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $text_write; ?></a></p>
+						<hr>
+						AddThis Button BEGIN
+						<div class="addthis_toolbox addthis_default_style" data-url="<?php echo $share; ?>"><a class="addthis_button_facebook_like" fb:like:layout="button_count"></a> <a class="addthis_button_tweet"></a> <a class="addthis_button_pinterest_pinit"></a> <a class="addthis_counter addthis_pill_style"></a></div>
+						<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-515eeaf54693130e"></script>
+						AddThis Button END
 					</div>
-					<?php } ?>
+					<?php } ?> -->
 				</div>
 			</div>
 			<?php if ($tags) { ?>
