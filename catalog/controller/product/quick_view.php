@@ -2,7 +2,7 @@
 class ControllerProductQuickView extends Controller {
 
 	public function show() {
-
+		$this->load->language('product/product');
 		$this->load->model('catalog/product');
 
 		$json = array();
