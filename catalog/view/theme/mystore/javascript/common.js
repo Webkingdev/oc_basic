@@ -354,10 +354,12 @@ var quick_view = {
 				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
 			}
 		});
+		$('body, html').css('overflow', 'hidden');
 	},
 	'close': function() {
 		$('.quick_view').remove();
 		$('.tooltip').remove();
+		$('body, html').css('overflow', 'auto');
 	}
 }
 
