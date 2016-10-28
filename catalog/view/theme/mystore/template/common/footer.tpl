@@ -21,6 +21,11 @@
           <li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 34 (383) 240-80-80</li>
           <li><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Сегодня: с 10:00 до 19:00</li>
         </ul>
+        <div class="socials">
+          <a class="social_icon">B</a>
+          <a class="social_icon">f</a>
+          <a class="social_icon avito_icon"><img src="image/avito.png" alt=""></a>
+        </div>
       </div>
       <div class="col-sm-2">
         <ul class="list-unstyled">
