@@ -90,6 +90,7 @@ class ControllerProductQuickView extends Controller {
 
 		foreach ($results as $result) {
 			$data['images'][] = array(
+				'original' => $result['image'],
 				'popup' => $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_popup_width'), $this->config->get($this->config->get('config_theme') . '_image_popup_height')),
 				'thumb' => $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_additional_width'), $this->config->get($this->config->get('config_theme') . '_image_additional_height'))
 			);
