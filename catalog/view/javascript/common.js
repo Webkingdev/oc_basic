@@ -339,6 +339,7 @@ var quick_view = {
 			dataType: 'json',
 			success: function(json) {
 				$('body').append(json['html']);
+				$('.tooltip').remove();
 				// $('.alert').remove();
 
 				// if (json['success']) {
@@ -356,6 +357,7 @@ var quick_view = {
 	},
 	'close': function() {
 		$('.quick_view').remove();
+		$('.tooltip').remove();
 	}
 }
 
