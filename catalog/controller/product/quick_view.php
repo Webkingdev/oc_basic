@@ -85,7 +85,10 @@ class ControllerProductQuickView extends Controller {
 		}
 
 		$data['images'] = array();
-
+		$data['images'][] = array(
+			'popup' => $data['popup'],
+			'thumb' => $data['thumb']
+		);
 		$results = $this->model_catalog_product->getProductImages($product_id);
 
 		foreach ($results as $result) {
