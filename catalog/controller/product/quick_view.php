@@ -2,7 +2,6 @@
 class ControllerProductQuickView extends Controller {
 
 	public function show() {
-		$this->load->language('product/quick_view');
 
 		$this->load->model('catalog/product');
 
@@ -15,7 +14,7 @@ class ControllerProductQuickView extends Controller {
 		}
 		$product_info = $this->model_catalog_product->getProduct($product_id);
 		// $data = $product_info;
-		$data['close'] = $this->language->get('text_close');
+		$data['text_close'] = $this->language->get('text_close');
 		$data['heading_title'] = $product_info['name'];
 
 		$data['text_select'] = $this->language->get('text_select');
