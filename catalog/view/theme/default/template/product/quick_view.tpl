@@ -10,7 +10,7 @@
 	<?php } ?>
 	<div class="<?php echo $class; ?> container">
 		<!-- <div class="<?php echo $class; ?>"> -->
-			<button class="close_btn fa fa-close" type="button" data-toggle="tooltip" title="<?php echo $close; ?>" onclick="quick_view.close();"></button>
+			<button class="close_btn fa fa-close" type="button" data-toggle="tooltip" title="<?php echo $text_close; ?>" onclick="quick_view.close();"></button>
 		<!-- </div> -->
 		<div class="<?php echo $class; ?> content">
 			<div class="row">
@@ -121,7 +121,11 @@
 							<input type="text" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="form-control" />
 							<input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
 							<br />
-							<button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-primary btn-lg btn-block"><?php echo $button_cart; ?></button>
+							<!-- <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-primary btn-lg btn-block"><?php echo $button_cart; ?></button> -->
+							<button type="button" onclick="cart.add('<?php echo $product_id; ?>', '<?php echo $minimum; ?>');" class="btn btn-primary btn-lg btn-block">
+								<i class="fa fa-shopping-cart"></i>
+								<span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span>
+							</button>
 						</div>
 						<?php if ($minimum > 1) { ?>
 						<div class="alert alert-info"><i class="fa fa-info-circle"></i> <?php echo $text_minimum; ?></div>
@@ -161,14 +165,3 @@
 		</div>
 	</div>
 </div>
-
-<!-- <script>
-	$(function(){
-		$('.quick_view').on('click', function(){
-			quick_view.close();
-		});
-		$('.content').on('click', function(e){
-			e.stopPropagation();
-		});
-	});
-</script> -->
