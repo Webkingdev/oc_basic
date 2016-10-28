@@ -793,20 +793,46 @@ h2.price {
 }
 
 .quick_view {
-	background: #fff;
-	z-index: 100;
-	width: 80vw;
-	height: 80vh;
-	top: 10vh;
-	left: 10vw;
-	overflow: auto;
-	position: fixed;
-	border: 1px solid #b7b7b7;
+	/*position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;*/
+	/*background-color: rgba(0,0,0,.4);
+    visibility: visible;*/
+	/*z-index: 100;*/
 }
 .quick_view .quick_view_background {
-	position: absolute;
+	position: fixed;
 	left: 0;
 	right: 0;
 	top: 0;
 	bottom: 0;
+	background-color: rgba(0,0,0,.4);
+    visibility: visible;
+	z-index: 10;
+}
+
+.quick_view .container {
+	background: #fff;
+	width: 80vw;
+	max-height: 80vh;
+	top: 10vh;
+	left: 10vw;
+	/*overflow: auto;*/
+	position: fixed;
+	border: 1px solid #b7b7b7;
+	padding: 38px 0px 0px 0px;
+	z-index: 20;
+}
+.quick_view .container .close_btn {
+	position: absolute;
+    top: 5px;
+    right: 5px;
+    height: 26px;
+    z-index: 100;
+}
+.quick_view .content {
+	max-height: calc(80vh - 40px);
+    overflow: auto;
 }

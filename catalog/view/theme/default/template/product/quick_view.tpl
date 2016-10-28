@@ -1,17 +1,18 @@
-<div class="quick_view">
-	<div class="quick_view_background">
-		<button type="button" data-toggle="tooltip" title="<?php echo $close; ?>" onclick="quick_view.close();">
-			<i class="fa fa-close"></i>
-		</button>
-		<?php echo $column_left; ?>
-		<?php if ($column_left && $column_right) { ?>
-		<?php $class = 'col-sm-6'; ?>
-		<?php } elseif ($column_left || $column_right) { ?>
-		<?php $class = 'col-sm-9'; ?>
-		<?php } else { ?>
-		<?php $class = 'col-sm-12'; ?>
-		<?php } ?>
-		<div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
+<div class="quick_view" >
+	<div class="quick_view_background" onclick="quick_view.close();"></div>
+	<?php echo $column_left; ?>
+	<?php if ($column_left && $column_right) { ?>
+	<?php $class = 'col-sm-6'; ?>
+	<?php } elseif ($column_left || $column_right) { ?>
+	<?php $class = 'col-sm-9'; ?>
+	<?php } else { ?>
+	<?php $class = 'col-sm-12'; ?>
+	<?php } ?>
+	<div class="<?php echo $class; ?> container">
+		<!-- <div class="<?php echo $class; ?>"> -->
+			<button class="close_btn fa fa-close" type="button" data-toggle="tooltip" title="<?php echo $close; ?>" onclick="quick_view.close();"></button>
+		<!-- </div> -->
+		<div class="<?php echo $class; ?> content">
 			<div class="row">
 				<?php if ($column_left || $column_right) { ?>
 				<?php $class = 'col-sm-6'; ?>
@@ -160,3 +161,14 @@
 		</div>
 	</div>
 </div>
+
+<!-- <script>
+	$(function(){
+		$('.quick_view').on('click', function(){
+			quick_view.close();
+		});
+		$('.content').on('click', function(e){
+			e.stopPropagation();
+		});
+	});
+</script> -->
