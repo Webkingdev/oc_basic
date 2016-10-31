@@ -1,3 +1,13 @@
+* {
+	outline: none;
+}
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn:active:focus,
+.btn:focus{
+	outline: none;
+}
 body {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
@@ -33,7 +43,7 @@ h6 {
 	font-size: 10.2px;
 }
 a {
-	color: #23a1d1;
+	color: #B20E0E;
 }
 a:hover {
 	text-decoration: none;
@@ -69,6 +79,9 @@ div.required .control-label:before {
 	color: #F00;
 	font-weight: bold;
 }
+.form-control:focus {
+	border-color: #ccc;
+}
 /* Gradent to all drop down menus */
 .dropdown-menu li > a:hover {
 	text-decoration: none;
@@ -79,7 +92,8 @@ div.required .control-label:before {
 }
 /* top */
 #top {
-	background-color: #EEEEEE;
+	/*background-color: #EEEEEE;*/
+	background: #1776B2;
 	border-bottom: 1px solid #e2e2e2;
 	padding: 4px 0px 3px 0;
 	margin: 0 0 20px 0;
@@ -96,17 +110,25 @@ div.required .control-label:before {
 #top #form-language .language-select:hover {
 	text-shadow: none;
 	color: #ffffff;
-	background-color: #229ac8;
-	background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);
-	background-repeat: repeat-x;
+	/*background-color: #229ac8;*/
+	/*background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);*/
+	/*background-repeat: repeat-x;*/
+	background: #1083CC;
 }
 #top .btn-link, #top-links li, #top-links a {
-	color: #888;
-	text-shadow: 0 1px 0 #FFF;
+	/*color: #888;*/
+	/*text-shadow: 0 1px 0 #FFF;*/
 	text-decoration: none;
+	color: #fff;
+}
+#top .dropdown-menu .btn-link,
+#top .dropdown-menu a {
+	color: #888;
 }
 #top .btn-link:hover, #top-links a:hover {
-	color: #444;
+	/*color: #444;*/
+	color: #fff;
+    background: #1083CC;
 }
 #top-links .dropdown-menu a {
 	text-shadow: none;
@@ -130,22 +152,36 @@ div.required .control-label:before {
 }
 /* search */
 #search {
-	margin-bottom: 10px;
+	/*margin-bottom: 10px;*/
+	margin-top: 15px;
 }
 #search .input-lg {
 	height: 40px;
 	line-height: 20px;
 	padding: 0 10px;
+	border-radius: 0px;
+	border-right: none;
+    box-shadow: none;
 }
 #search .btn-lg {
 	font-size: 15px;
 	line-height: 18px;
-	padding: 10px 35px;
-	text-shadow: 0 1px 0 #FFF;
+	padding: 10px 15px;
+	/*text-shadow: 0 1px 0 #FFF;*/
+	background: none;
+    border-radius: 0px;
+    /*border: none;*/
+    box-shadow: none;
+    border: 1px solid #cccccc;
+    border-left: none;
+}
+#search .fa-search {
+	font-size: 18px;
 }
 /* cart */
 #cart {
 	margin-bottom: 10px;
+	margin-top: 15px;
 }
 #cart > .btn {
 	font-size: 12px;
@@ -192,22 +228,30 @@ div.required .control-label:before {
 }
 /* menu */
 #menu {
-	background: #af9559;
+	/*background: #af9559;*/
 	min-height: 60px;
 	font-size: 18px;
+	padding-top: 10px;
+	border-top: 1px solid #dddddd;
 }
 #menu .nav {
 	width: 100%;
+	display: flex;
+    justify-content: space-between;
 }
 #menu .nav > li > a {
-	color: #fff;
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-	padding: 15px 15px 15px 15px;
+	/*color: #fff;*/
+	/*text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);*/
+	padding: 10px 10px 10px 10px;
 	min-height: 15px;
 	background-color: transparent;
+	/*color: #B20E0E;*/
 }
 #menu .nav > li > a:hover, #menu .nav > li.open > a {
-	background-color: rgba(0, 0, 0, 0.1);
+	/*background-color: rgba(0, 0, 0, 0.1);*/
+	background: #ff2d2d;
+	border-radius: 25px;
+	color: #fff;
 }
 #menu .dropdown-menu {
 	padding-bottom: 0;
@@ -314,7 +358,8 @@ div.required .control-label:before {
 footer {
 	margin-top: 30px;
 	padding: 30px 0;
-	background-color: #5d5555;
+	/*background-color: #5d5555;*/
+	background: #1776B2;
 	border-top: 1px solid #ddd;
 	color: #fff;
 	font-size: 1.1em;
@@ -358,7 +403,8 @@ footer .socials{
 }
 footer .socials .social_icon{
 	width: 35px;
-	background-color: #7a6b67;
+	/*background-color: #7a6b67;*/
+	background: #1083CC;
 	border-radius: 50%;
 	color: #fff;
 	text-align: center;
@@ -684,10 +730,12 @@ h2.price {
 	border-left: 1px solid #ddd;
 }
 .product-thumb .button-group button:hover {
-	color: #444;
-	background-color: #ddd;
+	/*color: #444;
+	background-color: #ddd;*/
 	text-decoration: none;
 	cursor: pointer;
+	color: #fff;
+    background: #ff2d2d;
 }
 @media (max-width: 1200px) {
 	.product-thumb .button-group button, .product-thumb .button-group button + button {
