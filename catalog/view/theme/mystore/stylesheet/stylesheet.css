@@ -175,6 +175,9 @@ div.required .control-label:before {
 #top-links .cabinet li a {
 	width: 100%;
 }
+#top-links .cabinet .dropdown-menu {
+	z-index: 1003;
+}
 /* logo */
 #logo {
 	margin: 0 0 10px 0;
@@ -235,6 +238,18 @@ div.required .control-label:before {
 #cart .dropdown-menu {
 	min-width: 100%;
 }
+#cart li div > .text-right {
+	display: flex;
+}
+#cart .text-right a {
+	display: block;
+    width: 50%;
+    text-align: center;
+    line-height: 40px;
+}
+#cart .text-right a:hover {
+	background: #fff;
+}
 @media (max-width: 478px) {
 	#cart .dropdown-menu {
 		width: 100%;
@@ -253,7 +268,7 @@ div.required .control-label:before {
 	}
 }
 #cart .dropdown-menu li p {
-	margin: 20px 0;
+	/*margin: 20px 0;*/
 }
 /* menu */
 #menu {
@@ -591,12 +606,16 @@ footer .socials .avito_icon img{
 	box-shadow: inset 0 1000px 0 rgba(0, 0, 0, 0.1);
 }
 .btn-danger {
-	color: #ffffff;
+	/*color: #ffffff;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 	background-color: #da4f49;
 	background-image: linear-gradient(to bottom, #ee5f5b, #bd362f);
 	background-repeat: repeat-x;
-	border-color: #bd362f #bd362f #802420;
+	border-color: #bd362f #bd362f #802420;*/
+	background: inherit;
+    color: #B20E0E;
+    border: none;
+    box-shadow: none;
 }
 .btn-danger:hover, .btn-danger:active, .btn-danger.active, .btn-danger.disabled, .btn-danger[disabled] {
 	box-shadow: inset 0 1000px 0 rgba(0, 0, 0, 0.1);
