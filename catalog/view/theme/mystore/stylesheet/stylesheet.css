@@ -121,6 +121,11 @@ div.required .control-label:before {
 	/*text-shadow: 0 1px 0 #FFF;*/
 	text-decoration: none;
 	color: #fff;
+    font-size: 14px;
+    line-height: 30px;
+    display: block;
+    float: left;
+    padding: 5px;
 }
 #top .dropdown-menu .btn-link,
 #top .dropdown-menu a {
@@ -142,10 +147,24 @@ div.required .control-label:before {
 		line-height: 14px;
 }
 #top-links {
-	padding-top: 6px;
+	/*padding-top: 6px;*/
+	width: 100%;
 }
 #top-links a + a {
 	margin-left: 15px;
+}
+#top-links .cabinet {
+	float: right;
+}
+#top-links .cabinet a {
+	background-color: inherit;
+}
+#top-links .cabinet a:hover{
+	background: #1083CC;
+}
+#top-links .cabinet li,
+#top-links .cabinet li a {
+	width: 100%;
 }
 /* logo */
 #logo {
@@ -202,7 +221,7 @@ div.required .control-label:before {
 }
 #cart .dropdown-menu {
 	background: #eee;
-	z-index: 1001;
+	z-index: 1003;
 }
 #cart .dropdown-menu {
 	min-width: 100%;
@@ -534,15 +553,18 @@ footer .socials .avito_icon img{
 }
 .btn-primary {
 	color: #ffffff;
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-	background-color: #229ac8;
-	background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);
-	background-repeat: repeat-x;
-	border-color: #1f90bb #1f90bb #145e7a;
+	/*text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);*/
+	/*background-color: #229ac8;*/
+	/*background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);*/
+	/*background-repeat: repeat-x;*/
+	/*border-color: #1f90bb #1f90bb #145e7a;*/
+	background: #1776B2;
 }
 .btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
-	background-color: #1f90bb;
-	background-position: 0 -15px;
+	/*background-color: #1f90bb;
+	background-position: 0 -15px;*/
+	background: #1083CC;
+	border: 1px solid #cccccc;
 }
 .btn-warning {
 	color: #ffffff;
