@@ -96,7 +96,7 @@ div.required .control-label:before {
 	/*background-color: #EEEEEE;*/
 	background: #1776B2;
 	border-bottom: 1px solid #e2e2e2;
-	padding: 4px 0px 3px 0;
+	/*padding: 4px 0px 3px 0;*/
 	margin: 0 0 20px 0;
 	min-height: 40px;
 }
@@ -116,7 +116,9 @@ div.required .control-label:before {
 	/*background-repeat: repeat-x;*/
 	background: #1083CC;
 }
-#top .btn-link, #top-links li, #top-links a {
+#top .btn-link,
+#top-links li,
+#top-links a {
 	/*color: #888;*/
 	/*text-shadow: 0 1px 0 #FFF;*/
 	text-decoration: none;
@@ -125,7 +127,12 @@ div.required .control-label:before {
     line-height: 30px;
     display: block;
     float: left;
-    padding: 5px;
+}
+#top-links a {
+	padding: 5px 10px 5px 10px;
+}
+#top-links li {
+	padding: 0px;
 }
 #top .dropdown-menu .btn-link,
 #top .dropdown-menu a {
@@ -159,9 +166,11 @@ div.required .control-label:before {
 #top-links .cabinet a {
 	background-color: inherit;
 }
-#top-links .cabinet a:hover{
+#top-links .cabinet a:hover,
+#top-links .cabinet a:focus {
 	background: #1083CC;
 }
+
 #top-links .cabinet li,
 #top-links .cabinet li a {
 	width: 100%;
@@ -357,7 +366,11 @@ div.required .control-label:before {
 	background-repeat: repeat-x;
 	border-color: #1f90bb #1f90bb #145e7a;
 }
-#menu .btn-navbar:hover, #menu .btn-navbar:focus, #menu .btn-navbar:active, #menu .btn-navbar.disabled, #menu .btn-navbar[disabled] {
+#menu .btn-navbar:hover,
+#menu .btn-navbar:focus,
+#menu .btn-navbar:active,
+#menu .btn-navbar.disabled,
+#menu .btn-navbar[disabled] {
 	color: #ffffff;
 	background-color: #229ac8;
 }
@@ -624,15 +637,18 @@ footer .socials .avito_icon img{
 }
 .btn-inverse {
 	color: #ffffff;
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	/*text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 	background-color: #363636;
 	background-image: linear-gradient(to bottom, #444444, #222222);
 	background-repeat: repeat-x;
-	border-color: #222222 #222222 #000000;
+	border-color: #222222 #222222 #000000;*/
+	background: #B20E0E;
+    border-radius: 0px;
 }
 .btn-inverse:hover, .btn-inverse:active, .btn-inverse.active, .btn-inverse.disabled, .btn-inverse[disabled] {
-	background-color: #222222;
-	background-image: linear-gradient(to bottom, #333333, #111111);
+	/*background-color: #222222;
+	background-image: linear-gradient(to bottom, #333333, #111111);*/
+	background: #FF2D2D;
 }
 /* list group */
 .list-group a {
