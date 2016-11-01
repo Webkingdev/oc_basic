@@ -1,24 +1,55 @@
 <?php
+
+/* ---------------------------------------------------------------------------------- */
+/*  OpenCart Loader (with support for the Override Engine)                            */
+/*                                                                                    */
+/*  Original file Copyright © 2016 by Daniel Kerr (www.opencart.com)                  */
+/*  Modifications Copyright © 2016 by J.Neuhoff (www.mhccorp.com)                     */
+/*                                                                                    */
+/*  This file is part of OpenCart.                                                    */
+/*                                                                                    */
+/*  OpenCart is free software: you can redistribute it and/or modify                  */
+/*  it under the terms of the GNU General Public License as published by              */
+/*  the Free Software Foundation, either version 3 of the License, or                 */
+/*  (at your option) any later version.                                               */
+/*                                                                                    */
+/*  OpenCart is distributed in the hope that it will be useful,                       */
+/*  but WITHOUT ANY WARRANTY; without even the implied warranty of                    */
+/*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the                     */
+/*  GNU General Public License for more details.                                      */
+/*                                                                                    */
+/*  You should have received a copy of the GNU General Public License                 */
+/*  along with OpenCart.  If not, see <http://www.gnu.org/licenses/>.                 */
+/* ---------------------------------------------------------------------------------- */
+
 final class Loader {
 	protected $registry;
 
 	public function __construct($registry) {
 		$this->registry = $registry;
 	}
-	
+
+	public function __get($key) {
+		return $this->registry->get($key);
+	}
+
+	public function __set($key, $value) {
+		$this->registry->set($key, $value);
+	}
+
 	public function controller($route, $data = array()) {
 		// Sanitize the call
 		$route = preg_replace('/[^a-zA-Z0-9_\/]/', '', (string)$route);
-		
+
 		$output = null;
-		
+
 		// Trigger the pre events
 		$result = $this->registry->get('event')->trigger('controller/' . $route . '/before', array(&$route, &$data, &$output));
 		
 		if ($result) {
 			return $result;
 		}
-		
+
 		if (!$output) {
 			$action = new Action($route);
 			$output = $action->execute($this->registry, array(&$data));
@@ -33,30 +64,32 @@ final class Loader {
 
 		return $output;
 	}
-	
+
 	public function model($route) {
 		// Sanitize the call
 		$route = preg_replace('/[^a-zA-Z0-9_\/]/', '', (string)$route);
-		
+
 		// Trigger the pre events
 		$this->registry->get('event')->trigger('model/' . $route . '/before', array(&$route));
 		
-		if (!$this->registry->has('model_' . str_replace(array('/', '-', '.'), array('_', '', ''), $route))) {
-			$file  = DIR_APPLICATION . 'model/' . $route . '.php';
-			$class = 'Model' . preg_replace('/[^a-zA-Z0-9]/', '', $route);
-			
-			if (is_file($file)) {
-				include_once(\VQMod::modCheck(modification($file), $file));
-	
-				$proxy = new Proxy();
-				
-				foreach (get_class_methods($class) as $method) {
-					$proxy->{$method} = $this->callback($this->registry, $route . '/' . $method);
+		if ($this->factory) {
+			$instance = $this->factory->newModel($route);
+			$decorator = new ModelDecorator($instance,$route);
+			$this->registry->set('model_' . str_replace(array('/', '-', '.'), array('_', '', ''), $route), $decorator );
+		} else {
+			if (!$this->registry->has('model_' . str_replace(array('/', '-', '.'), array('_', '', ''), $route))) {
+				$file  = DIR_APPLICATION . 'model/' . $route . '.php';
+				$class = 'Model' . preg_replace('/[^a-zA-Z0-9]/', '', $route);
+				if (is_file($file)) {
+					include_once(\VQMod::modCheck(modification($file), $file));
+					$proxy = new Proxy();
+					foreach (get_class_methods($class) as $method) {
+						$proxy->{$method} = $this->callback($this->registry, $route . '/' . $method);
+					}
+					$this->registry->set('model_' . str_replace(array('/', '-', '.'), array('_', '', ''), (string)$route), $proxy);
+				} else {
+					throw new \Exception('Error: Could not load model ' . $route . '!');
 				}
-				
-				$this->registry->set('model_' . str_replace(array('/', '-', '.'), array('_', '', ''), (string)$route), $proxy);
-			} else {
-				throw new \Exception('Error: Could not load model ' . $route . '!');
 			}
 		}
 		
@@ -78,13 +111,18 @@ final class Loader {
 		}
 		
 		if (!$output) {
-			$template = new Template($this->registry->get('config')->get('template_type'));
+			if ($this->factory) {
+				$output = $this->factory->loadView( $route, $data );
+			} else {
+
+				$template = new Template($this->registry->get('config')->get('template_type'));
 			
-			foreach ($data as $key => $value) {
-				$template->set($key, $value);
+				foreach ($data as $key => $value) {
+					$template->set($key, $value);
+				}
+			
+				$output = $template->render($route . '.tpl');
 			}
-		
-			$output = $template->render($route . '.tpl');
 		}
 		
 		// Trigger the post events
@@ -100,7 +138,12 @@ final class Loader {
 	public function library($route) {
 		// Sanitize the call
 		$route = preg_replace('/[^a-zA-Z0-9_\/]/', '', (string)$route);
-			
+
+		if ($this->factory) {
+			$this->registry->set(basename($route), $this->factory->newLibrary($route,$this->registry) );
+			return;
+		}
+
 		$file = DIR_SYSTEM . 'library/' . $route . '.php';
 		$class = str_replace('/', '\\', $route);
 
@@ -133,16 +176,16 @@ final class Loader {
 
 	public function language($route) {
 		$output = null;
-		
+
 		$this->registry->get('event')->trigger('language/' . $route . '/before', array(&$route, &$output));
-		
+
 		$output = $this->registry->get('language')->load($route);
 		
 		$this->registry->get('event')->trigger('language/' . $route . '/after', array(&$route, &$output));
 		
 		return $output;
 	}
-	
+
 	protected function callback($registry, $route) {
 		return function($args) use($registry, &$route) {
 			static $model = array(); 			
