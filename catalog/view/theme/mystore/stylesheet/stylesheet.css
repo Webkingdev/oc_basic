@@ -207,6 +207,19 @@ div.required .control-label:before {
     border: 1px solid #cccccc;
     border-left: none;
 }
+#search .btn-lg:hover .fa-search {
+	color: #FF2D2D;
+}
+#search .btn-lg:hover,
+#search .btn-lg:focus,
+#search .btn-lg:active {
+	color: #ff2d2d !important;
+    background-color: #fff !important;
+}
+/*#search .btn-lg:active {
+	color: #FF2D2D !important;
+    background-color: #fff !important;
+}*/
 #search .fa-search {
 	font-size: 18px;
 }
