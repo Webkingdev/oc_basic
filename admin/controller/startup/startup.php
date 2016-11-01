@@ -1,4 +1,27 @@
 <?php
+
+/* ---------------------------------------------------------------------------------- */
+/*  OpenCart ControllerStartupStartup (with modififications for the Override Engine)  */
+/*                                                                                    */
+/*  Original file Copyright © 2016 by Daniel Kerr (www.opencart.com)                  */
+/*  Modifications Copyright © 2016 by J.Neuhoff (www.mhccorp.com)                     */
+/*                                                                                    */
+/*  This file is part of OpenCart.                                                    */
+/*                                                                                    */
+/*  OpenCart is free software: you can redistribute it and/or modify                  */
+/*  it under the terms of the GNU General Public License as published by              */
+/*  the Free Software Foundation, either version 3 of the License, or                 */
+/*  (at your option) any later version.                                               */
+/*                                                                                    */
+/*  OpenCart is distributed in the hope that it will be useful,                       */
+/*  but WITHOUT ANY WARRANTY; without even the implied warranty of                    */
+/*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the                     */
+/*  GNU General Public License for more details.                                      */
+/*                                                                                    */
+/*  You should have received a copy of the GNU General Public License                 */
+/*  along with OpenCart.  If not, see <http://www.gnu.org/licenses/>.                 */
+/* ---------------------------------------------------------------------------------- */
+
 class ControllerStartupStartup extends Controller {
 	public function index() {
 		// Settings
@@ -20,21 +43,21 @@ class ControllerStartupStartup extends Controller {
 		}
 		
 		// Language
-		$language = new Language($this->config->get('config_admin_language'));
+		$language = $this->factory->newLanguage($this->config->get('config_admin_language'));
 		$language->load($this->config->get('config_admin_language'));
 		$this->registry->set('language', $language);
 		
 		// Customer
-		$this->registry->set('customer', new Cart\Customer($this->registry));
+		$this->registry->set('customer', $this->factory->newCart_Customer($this->registry));
 		
 		// Affiliate
-		$this->registry->set('affiliate', new Cart\Affiliate($this->registry));
+		$this->registry->set('affiliate', $this->factory->newCart_Affiliate($this->registry));
 
 		// Currency
-		$this->registry->set('currency', new Cart\Currency($this->registry));
+		$this->registry->set('currency', $this->factory->newCart_Currency($this->registry));
 	
 		// Tax
-		$this->registry->set('tax', new Cart\Tax($this->registry));
+		$this->registry->set('tax', $this->factory->newCart_Tax($this->registry));
 		
 		if ($this->config->get('config_tax_default') == 'shipping') {
 			$this->tax->setShippingAddress($this->config->get('config_country_id'), $this->config->get('config_zone_id'));
@@ -47,18 +70,18 @@ class ControllerStartupStartup extends Controller {
 		$this->tax->setStoreAddress($this->config->get('config_country_id'), $this->config->get('config_zone_id'));
 
 		// Weight
-		$this->registry->set('weight', new Cart\Weight($this->registry));
+		$this->registry->set('weight', $this->factory->newCart_Weight($this->registry));
 		
 		// Length
-		$this->registry->set('length', new Cart\Length($this->registry));
+		$this->registry->set('length', $this->factory->newCart_Length($this->registry));
 		
 		// Cart
-		$this->registry->set('cart', new Cart\Cart($this->registry));
+		$this->registry->set('cart', $this->factory->newCart_Cart($this->registry));
 		
 		// Encryption
-		$this->registry->set('encryption', new Encryption($this->config->get('config_encryption')));
+		$this->registry->set('encryption', $this->factory->newEncryption($this->config->get('config_encryption')));
 		
 		// OpenBay Pro
-		$this->registry->set('openbay', new Openbay($this->registry));					
+		$this->registry->set('openbay', $this->factory->newOpenbay($this->registry));					
 	}
 }

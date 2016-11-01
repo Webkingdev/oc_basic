@@ -197,3 +197,13 @@ catalog\view\theme\default\template\product\category.tpl
 catalog\controller\product\quick_view.php
 catalog\view\theme\default\template\product\quick_view.tpl
 system\startup.php
+catalog\language\en-gb\extension\total\coupon.php
+catalog\language\ru-ru\extension\total\coupon.php
+catalog\language\en-gb\extension\total\shipping.php
+catalog\language\ru-ru\extension\total\shipping.php
+catalog\language\en-gb\extension\total\voucher.php
+catalog\language\ru-ru\extension\total\voucher.php
+admin\language\en-gb\extension\modification.php
+admin\language\ru-ru\extension\modification.php
+system\storage\modification\catalog\controller\extension\module\slideshow.php
+catalog\view\theme\default\template\common\header.tpl
