@@ -45,12 +45,21 @@
 		<div id="top-links" class="nav pull-right">
 			<ul class="list-inline">
 				<li>
-					<a href="<?php echo $contact; ?>">
+					<a href="tel:<?php echo $contact; ?>">
 						<i class="fa fa-phone"></i>
 						<span class="hidden-xs hidden-sm hidden-md"><?php echo $telephone; ?></span>
+					</a>
+				</li>
+				<li>
+					<a href="<?php echo $contact; ?>">
 						<span class="hidden-xs hidden-sm hidden-md"><?php echo $text_contact; ?></span>
 					</a>
 				</li>
+				<?php foreach ($informations as $information) { ?>
+					<li>
+						<a href="<?php echo $information['href']; ?>"><?php echo $information['title']; ?></a>
+					</li>
+				<?php } ?>
 				<li class="dropdown">
 					<a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="fa fa-user"></i>

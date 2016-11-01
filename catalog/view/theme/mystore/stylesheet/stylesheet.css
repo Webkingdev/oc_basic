@@ -245,6 +245,7 @@ div.required .control-label:before {
 	padding: 10px 10px 10px 10px;
 	min-height: 15px;
 	background-color: transparent;
+	z-index: 1002;
 	/*color: #B20E0E;*/
 }
 #menu .nav > li > a:hover, #menu .nav > li.open > a {
@@ -253,8 +254,29 @@ div.required .control-label:before {
 	border-radius: 25px;
 	color: #fff;
 }
+
+
+#menu .nav > li:hover.dropdown:after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: calc(50% - 20px);
+  border: 20px solid transparent;
+  border-bottom-color: #fff;
+  top: 57%;
+  z-index: 1001;
+  -webkit-filter: drop-shadow(0 -3px 0 red);
+  filter: drop-shadow(0 -3px 0 red);
+}
+
+
+
+
+
 #menu .dropdown-menu {
 	padding-bottom: 0;
+	margin-top: 20px;
+	border-top: 2px solid red;
 }
 #menu .dropdown-inner {
 	display: table;

@@ -69,21 +69,8 @@ class ControllerCommonHeader extends Controller {
 		$data['text_checkout'] = $this->language->get('text_checkout');
 		$data['text_category'] = $this->language->get('text_category');
 		$data['text_all'] = $this->language->get('text_all');
-
-		//Дополнительные добавления
-
 		$data['text_contact'] = $this->language->get('text_contact');
 
-		$data['informations'] = array();
-
-		foreach ($this->model_catalog_information->getInformations() as $result) {
-			if ($result['bottom']) {
-				$data['informations'][] = array(
-					'title' => $result['title'],
-					'href'  => $this->url->link('information/information', 'information_id=' . $result['information_id'])
-				);
-			}
-		}
 
 		$data['home'] = $this->url->link('common/home');
 		$data['wishlist'] = $this->url->link('account/wishlist', '', true);
