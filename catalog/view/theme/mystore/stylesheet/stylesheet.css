@@ -573,11 +573,23 @@ footer .socials .avito_icon img{
 }
 .btn-default {
 	color: #777;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	/*text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 	background-color: #e7e7e7;
 	background-image: linear-gradient(to bottom, #eeeeee, #dddddd);
 	background-repeat: repeat-x;
-	border-color: #dddddd #dddddd #b3b3b3 #b7b7b7;
+	border-color: #dddddd #dddddd #b3b3b3 #b7b7b7;*/
+	border-radius: 0px;
+    background: #eee;
+    box-shadow: none;
+}
+.btn-default:hover,
+.btn-default:focus {
+	color: #fff;
+    background-color: #ff2d2d;
+}
+.btn-default:active {
+	color: #fff !important;
+    background-color: #B20E0E !important;
 }
 .btn-primary {
 	color: #ffffff;
@@ -587,12 +599,14 @@ footer .socials .avito_icon img{
 	/*background-repeat: repeat-x;*/
 	/*border-color: #1f90bb #1f90bb #145e7a;*/
 	background: #1776B2;
+	border-radius: 0px;
+    border: none;
 }
 .btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
 	/*background-color: #1f90bb;
 	background-position: 0 -15px;*/
 	background: #1083CC;
-	border: 1px solid #cccccc;
+	/*border: 1px solid #cccccc;*/
 }
 .btn-warning {
 	color: #ffffff;
