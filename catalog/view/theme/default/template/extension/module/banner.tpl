@@ -9,13 +9,14 @@
   </div>
   <?php } ?>
 </div>
-<script type="text/javascript"><!--
+<script type="text/javascript">
 $('#banner<?php echo $module; ?>').owlCarousel({
-	items: 6,
+	items: 1,
 	autoPlay: 3000,
 	singleItem: true,
-	navigation: false,
-	pagination: false,
-	transitionStyle: 'fade'
+	navigation: true,
+	pagination: true,
+	transitionStyle: 'fade',
+  navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>']
 });
---></script>
+</script>
