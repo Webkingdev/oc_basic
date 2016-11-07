@@ -408,3 +408,5 @@ admin\controller\common\filemanager.php
 admin\language\en-gb\common\filemanager.php
 admin\language\ru-ru\common\filemanager.php
 admin\view\template\common\filemanager.tpl
+catalog\controller\extension\module\html.php
+catalog\view\theme\default\template\extension\module\html.tpl
