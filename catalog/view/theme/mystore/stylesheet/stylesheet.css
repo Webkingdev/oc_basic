@@ -1031,7 +1031,7 @@ h2.price {
 }
 .option_id_13 .radio img,
 .option_id_14 .radio img {
-    margin: 0px auto;
+    margin: 0 auto;
     border: none;
 }
 .option_id_13 .radio input,
@@ -1039,4 +1039,19 @@ h2.price {
 	margin-top:80px;
 	margin-left: 25px;
 }
-
+.products_catalog .category_item {
+	display: block;
+	border: 1px solid #eee;
+	text-align: center;
+	padding-bottom: 15px;
+	margin-bottom: 15px;
+	font-size: 14px;
+}
+.products_catalog .category_item:hover {
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+.products_catalog .category_item img {
+    margin: 0 auto;
+    display: block;
+    max-width: 100%;
+}

@@ -84,6 +84,9 @@ class header_variables_ControllerCommonHeader extends ControllerCommonHeader {
 				);
 			}
 		}
+		$data['catalog'] = $this->url->link('catalog/catalog');
+
+		//Конец доп переменных
 
 
 		$data['home'] = $this->url->link('common/home');
