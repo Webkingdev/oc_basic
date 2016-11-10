@@ -747,3 +747,37 @@ h2.price {
     background-image: none;
     background-color: #df5c39;
 }
+
+
+/*Categories_page*/
+.categories_page ul{
+	padding: 0;
+}
+.categories_page ul li{
+	list-style: none;
+	text-align: center;
+	padding: 15px 0;
+	border: 1px red;
+	display: inline-block;
+}
+.categories_page ul li a{
+	display: inline-block;
+	width: 98%;
+	border: 1px solid;
+	border-radius: 4px;
+	padding: 15px;
+	margin: 5px;
+	overflow: hidden;
+	max-height: 258px;
+	min-height: 200px;
+}
+.categories_page ul li a .img_wrap{
+	display: inline-block;
+	overflow: hidden;
+}
+.categories_page ul li a .title_wrap{
+	display: inline-block;
+}
+.categories_page ul li a img{
+	max-width: 100%;
+}
