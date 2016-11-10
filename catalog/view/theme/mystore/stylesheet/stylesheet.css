@@ -1005,3 +1005,38 @@ h2.price {
 	width: 48%;
     height: 40px;
 }
+
+.option_id_13 {
+    float: left;
+}
+.option_id_14 {
+	float: right;
+}
+.option_id_13,
+.option_id_14 {
+	width: 50%;
+	margin-bottom: 20px;
+}
+.option_id_13 label,
+.option_id_14 label {
+	width: 100%;
+	text-align: center;
+}
+
+.option_id_13 .radio label,
+.option_id_14 .radio label {
+	width: 50%;
+    float: left;
+    text-align: center;
+}
+.option_id_13 .radio img,
+.option_id_14 .radio img {
+    margin: 0px auto;
+    border: none;
+}
+.option_id_13 .radio input,
+.option_id_14 .radio input {
+	margin-top:80px;
+	margin-left: 25px;
+}
+

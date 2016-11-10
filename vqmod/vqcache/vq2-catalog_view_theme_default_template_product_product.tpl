@@ -22,6 +22,77 @@
 			<?php $class = 'col-sm-8'; ?>
 			<?php } ?>
 			<div class="<?php echo $class; ?>">
+
+				
+					<?php if (defined('webrotate360_headers')) { ?>
+					    <?php if (defined('webrotate360_popupgallery')) { ?>
+                            <?php if (defined('webrotate360_viewer_embed')) { ?>
+                                <div class="wr360wrap">
+                                    <div id="wr360embed">
+                                    </div>
+                                </div>
+                                <?php if ($thumb || $images) { ?>
+                                    <ul class="thumbnails">
+                                        <?php if ($thumb) { ?>
+                                            <li class="image-additional"><a class="thumbnail" rel="prettyPhoto[]" href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>
+                                        <?php } ?>
+                                        <?php foreach ($images as $image) { ?>
+                                            <li class="image-additional"><a class="thumbnail" rel="prettyPhoto[]" href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>"> <img src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>
+                                        <?php } ?>
+                                        <?php $thumb = null; $images = null; ?>
+                                    </ul>
+                                <?php } ?>
+                            <?php } ?>
+                            <?php if (defined('webrotate360_viewer_popup')) { ?>
+                                <?php if ($thumb || $images) { ?>
+                                    <ul class="thumbnails">
+                                        <?php if ($thumb) { ?>
+                                            <li><a class="thumbnail" rel="prettyPhoto[]" rel="prettyPhoto[]" href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>
+                                        <?php } ?>
+                                        <?php foreach ($images as $image) { ?>
+                                            <li class="image-additional"><a class="thumbnail" rel="prettyPhoto[]" href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>"> <img src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>
+                                        <?php } ?>
+                                        <li class="image-additional"><div id="wr360embed"><a class="thumbnail" href="#" rel="prettyPhoto[]" title="360 product view"><img src="" alt="360 product view" /></a></div></li>
+                                        <?php $thumb = null; $images = null; ?>
+                                    </ul>
+                                <?php } ?>
+                            <?php } ?>
+                            <?php if (!defined('webrotate360_viewer_embed') && !defined('webrotate360_viewer_popup')) { ?>
+                                <?php if ($thumb || $images) { ?>
+                                    <ul class="thumbnails">
+                                        <?php if ($thumb) { ?>
+                                            <li><a class="thumbnail" rel="prettyPhoto[]" href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>
+                                        <?php } ?>
+                                        <?php foreach ($images as $image) { ?>
+                                            <li class="image-additional"><a class="thumbnail" rel="prettyPhoto[]" href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>"> <img src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>
+                                        <?php } ?>
+                                        <?php $thumb = null; $images = null; ?>
+                                    </ul>
+                                <?php } ?>
+                            <?php } ?>
+                        <?php } ?>
+                        <?php if (!defined('webrotate360_popupgallery')) { ?>
+                            <?php if (defined('webrotate360_viewer_embed')) { ?>
+                                <div class="wr360wrap">
+                                    <div id="wr360embed">
+                                    </div>
+                                </div>
+                                <?php if ($thumb || $images) { ?>
+                                    <ul class="thumbnails">
+                                        <?php if ($thumb) { ?>
+                                            <li class="image-additional"><a class="thumbnail" href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>
+                                        <?php } ?>
+                                        <?php foreach ($images as $image) { ?>
+                                            <li class="image-additional"><a class="thumbnail" href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>"> <img src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>
+                                        <?php } ?>
+                                        <?php $thumb = null; $images = null; ?>
+                                    </ul>
+                                <?php } ?>
+                            <?php } ?>
+                        <?php } ?>
+					<?php } ?>
+                
+			
 				<?php if ($thumb || $images) { ?>
 				<ul class="thumbnails">
 				<?php if ($thumb) { ?>
