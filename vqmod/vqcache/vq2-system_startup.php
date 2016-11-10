@@ -1,27 +1,4 @@
 <?php
-
-/* ---------------------------------------------------------------------------------- */
-/*  OpenCart startup (with modififications for the Override Engine)                   */
-/*                                                                                    */
-/*  Original file Copyright © 2016 by Daniel Kerr (www.opencart.com)                  */
-/*  Modifications Copyright © 2016 by J.Neuhoff (www.mhccorp.com)                     */
-/*                                                                                    */
-/*  This file is part of OpenCart.                                                    */
-/*                                                                                    */
-/*  OpenCart is free software: you can redistribute it and/or modify                  */
-/*  it under the terms of the GNU General Public License as published by              */
-/*  the Free Software Foundation, either version 3 of the License, or                 */
-/*  (at your option) any later version.                                               */
-/*                                                                                    */
-/*  OpenCart is distributed in the hope that it will be useful,                       */
-/*  but WITHOUT ANY WARRANTY; without even the implied warranty of                    */
-/*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the                     */
-/*  GNU General Public License for more details.                                      */
-/*                                                                                    */
-/*  You should have received a copy of the GNU General Public License                 */
-/*  along with OpenCart.  If not, see <http://www.gnu.org/licenses/>.                 */
-/* ---------------------------------------------------------------------------------- */
-
 // Error Reporting
 error_reporting(E_ALL);
 
@@ -33,12 +10,12 @@ if (version_compare(phpversion(), '5.4.0', '<') == true) {
 // Magic Quotes Fix
 if (ini_get('magic_quotes_gpc')) {
 	function clean($data) {
-		if (is_array($data)) {
-			foreach ($data as $key => $value) {
-				$data[clean($key)] = clean($value);
-			}
+   		if (is_array($data)) {
+  			foreach ($data as $key => $value) {
+    			$data[clean($key)] = clean($value);
+  			}
 		} else {
-			$data = stripslashes($data);
+  			$data = stripslashes($data);
 		}
 
 		return $data;
@@ -137,8 +114,6 @@ require_once(\VQMod::modCheck(modification(DIR_SYSTEM . 'engine/loader.php'), DI
 require_once(\VQMod::modCheck(modification(DIR_SYSTEM . 'engine/model.php'), DIR_SYSTEM . 'engine/model.php'));
 require_once(\VQMod::modCheck(modification(DIR_SYSTEM . 'engine/registry.php'), DIR_SYSTEM . 'engine/registry.php'));
 require_once(\VQMod::modCheck(modification(DIR_SYSTEM . 'engine/proxy.php'), DIR_SYSTEM . 'engine/proxy.php'));
-require_once(\VQMod::modCheck(DIR_SYSTEM . 'engine/factory.php'));
-require_once(\VQMod::modCheck(DIR_SYSTEM . 'engine/model_decorator.php'));
 
 // Helper
 require_once(\VQMod::modCheck(DIR_SYSTEM . 'helper/general.php'));

@@ -1,42 +1,15 @@
 <?php
-
-/* ---------------------------------------------------------------------------------- */
-/*  OpenCart framework.php (with modififications for the Override Engine)             */
-/*                                                                                    */
-/*  Original file Copyright © 2016 by Daniel Kerr (www.opencart.com)                  */
-/*  Modifications Copyright © 2016 by J.Neuhoff (www.mhccorp.com)                     */
-/*                                                                                    */
-/*  This file is part of OpenCart.                                                    */
-/*                                                                                    */
-/*  OpenCart is free software: you can redistribute it and/or modify                  */
-/*  it under the terms of the GNU General Public License as published by              */
-/*  the Free Software Foundation, either version 3 of the License, or                 */
-/*  (at your option) any later version.                                               */
-/*                                                                                    */
-/*  OpenCart is distributed in the hope that it will be useful,                       */
-/*  but WITHOUT ANY WARRANTY; without even the implied warranty of                    */
-/*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the                     */
-/*  GNU General Public License for more details.                                      */
-/*                                                                                    */
-/*  You should have received a copy of the GNU General Public License                 */
-/*  along with OpenCart.  If not, see <http://www.gnu.org/licenses/>.                 */
-/* ---------------------------------------------------------------------------------- */
-
 // Registry
 $registry = new Registry();
 
-// Factory
-$factory = new Factory($registry);
-$registry->set( 'factory', $factory );
-
 // Config
-$config = $factory->newConfig();
+$config = new Config();
 $config->load('default');
 $config->load($application_config);
 $registry->set('config', $config);
 
 // Event
-$event = $factory->newMediator($registry);
+$event = new Event($registry);
 $registry->set('event', $event);
 
 // Event Register
@@ -51,20 +24,20 @@ $loader = new Loader($registry);
 $registry->set('load', $loader);
 
 // Request
-$registry->set('request', $factory->newRequest());
+$registry->set('request', new Request());
 
 // Response
-$response = $factory->newResponse();
+$response = new Response();
 $response->addHeader('Content-Type: text/html; charset=utf-8');
 $registry->set('response', $response);
 
 // Database
 if ($config->get('db_autostart')) {
-	$registry->set('db', $factory->newDB($config->get('db_type'), $config->get('db_hostname'), $config->get('db_username'), $config->get('db_password'), $config->get('db_database'), $config->get('db_port')));
+	$registry->set('db', new DB($config->get('db_type'), $config->get('db_hostname'), $config->get('db_username'), $config->get('db_password'), $config->get('db_database'), $config->get('db_port')));
 }
 
 // Session
-$session = $factory->newSession();
+$session = new Session();
 
 if ($config->get('session_autostart')) {
 	$session->start();
@@ -73,20 +46,20 @@ if ($config->get('session_autostart')) {
 $registry->set('session', $session);
 
 // Cache 
-$registry->set('cache', $factory->newCache($config->get('cache_type'), $config->get('cache_expire')));
+$registry->set('cache', new Cache($config->get('cache_type'), $config->get('cache_expire')));
 
 // Url
 if ($config->get('url_autostart')) {
-	$registry->set('url', $factory->newUrl($config->get('site_base'), $config->get('site_ssl')));
+	$registry->set('url', new Url($config->get('site_base'), $config->get('site_ssl')));
 }
 
 // Language
-$language = $factory->newLanguage($config->get('language_default'));
+$language = new Language($config->get('language_default'));
 $language->load($config->get('language_default'));
 $registry->set('language', $language);
 
 // Document
-$registry->set('document', $factory->newDocument());
+$registry->set('document', new Document());
 
 // Config Autoload
 if ($config->has('config_autoload')) {
@@ -122,12 +95,12 @@ $controller = new Front($registry);
 // Pre Actions
 if ($config->has('action_pre_action')) {
 	foreach ($config->get('action_pre_action') as $value) {
-		$controller->addPreAction(new Action($value,$factory));
+		$controller->addPreAction(new Action($value));
 	}
 }
 
 // Dispatch
-$controller->dispatch(new Action($config->get('action_router'),$factory), new Action($config->get('action_error'),$factory));
+$controller->dispatch(new Action($config->get('action_router')), new Action($config->get('action_error')));
 
 // Output
 $response->setCompression($config->get('config_compression'));
