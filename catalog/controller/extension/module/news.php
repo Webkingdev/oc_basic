@@ -6,7 +6,8 @@ class ControllerExtensionModuleNews extends Controller {
 
 		$filter_data = array(
 			'page' => 1,
-			'limit' => 5,
+			// 'limit' => 5,
+			'limit' => 3,
 			'start' => 0,
 		);
 

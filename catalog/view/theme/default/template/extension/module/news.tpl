@@ -1,7 +1,8 @@
 <div class="newslist panel panel-default">
 	<link type="text/css" href="catalog/view/theme/default/stylesheet/news_list.css" rel="stylesheet" media="screen" />
 	<div class="panel-heading">
-		<?php echo $heading_title; ?>
+		<!-- <?php echo $heading_title; ?> -->
+		Последные новости
 		<a class="newslist__allnewsbtn" href="<?php echo $all_news_href; ?>">Все новости</a>
 	</div>
 	<div class="panel-body">
