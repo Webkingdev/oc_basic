@@ -18,11 +18,11 @@ class ControllerExtensionModuleNews extends Controller {
 		}
 
 		$data['heading_title'] = $this->language->get('heading_title');
-		
+
 		$data['text_edit'] = $this->language->get('text_edit');
 		$data['text_enabled'] = $this->language->get('text_enabled');
 		$data['text_disabled'] = $this->language->get('text_disabled');
-		
+
 		$data['entry_status'] = $this->language->get('entry_status');
 
 		$data['button_save'] = $this->language->get('button_save');
@@ -60,7 +60,7 @@ class ControllerExtensionModuleNews extends Controller {
 		} else {
 			$data['news_status'] = $this->config->get('news_status');
 		}
-		
+
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
@@ -75,7 +75,7 @@ class ControllerExtensionModuleNews extends Controller {
 
 		return !$this->error;
 	}
-	
+
 	public function install() {
 		$this->db->query("CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "news` (
 		  `news_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -94,13 +94,13 @@ class ControllerExtensionModuleNews extends Controller {
 		  `short_description` text COLLATE utf8_bin NOT NULL,
 		  PRIMARY KEY (`news_description_id`)
 		)");
-		
+
 		$this->load->model('user/user_group');
 
 		$this->model_user_user_group->addPermission($this->user->getId(), 'access', 'extension/news');
 		$this->model_user_user_group->addPermission($this->user->getId(), 'modify', 'extension/news');
 	}
-	
+
 	public function uninstall() {
 		$this->db->query("DROP TABLE IF EXISTS `" . DB_PREFIX . "news`");
 		$this->db->query("DROP TABLE IF EXISTS `" . DB_PREFIX . "news_description`");

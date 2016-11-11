@@ -1,21 +1,22 @@
-<?php  
+<?php
 class ControllerExtensionModuleNews extends Controller {
 	public function index() {
 		$this->language->load('extension/module/news');
 		$this->load->model('extension/news');
-		
+
 		$filter_data = array(
 			'page' => 1,
 			'limit' => 5,
 			'start' => 0,
 		);
-	 
+
 		$data['heading_title'] = $this->language->get('heading_title');
-	 
+		$data['all_news_href'] = $this->url->link('information/news');
+
 		$all_news = $this->model_extension_news->getAllNews($filter_data);
-	 
+
 		$data['all_news'] = array();
-	 
+
 		foreach ($all_news as $news) {
 			$data['all_news'][] = array (
 				'title' 		=> html_entity_decode($news['title'], ENT_QUOTES),
@@ -24,7 +25,7 @@ class ControllerExtensionModuleNews extends Controller {
 				'date_added' 	=> date($this->language->get('date_format_short'), strtotime($news['date_added']))
 			);
 		}
-		
+
 		return $this->load->view('extension/module/news', $data);
 	}
 }
