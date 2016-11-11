@@ -17,13 +17,10 @@ $_['column_action']     = 'Action';
 // Entry
 $_['entry_name']        = 'Banner Name';
 $_['entry_title']       = 'Title';
-$_['entry_comment']     = 'Comment';
-$_['entry_author']      = 'Author';
 $_['entry_link']        = 'Link';
 $_['entry_image']       = 'Image';
 $_['entry_status']      = 'Status';
 $_['entry_sort_order']  = 'Sort Order';
-$_['entry_text']  		= 'Enter the text';
 
 // Error
 $_['error_permission'] = 'Warning: You do not have permission to modify banners!';

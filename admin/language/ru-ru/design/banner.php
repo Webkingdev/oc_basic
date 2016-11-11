@@ -17,13 +17,10 @@ $_['column_action']     = 'Действие';
 // Entry
 $_['entry_name']        = 'Название баннера';
 $_['entry_title']       = 'Заголовок';
-$_['entry_comment']     = 'Текст';
-$_['entry_author']      = 'Автор';
 $_['entry_link']        = 'Ссылка';
 $_['entry_image']       = 'Изображение';
 $_['entry_status']      = 'Статус';
 $_['entry_sort_order']  = 'Порядок сортировки';
-$_['entry_text']  		= 'Введите текст';
 
 // Error
 $_['error_permission'] = 'У Вас нет прав для изменения настроек!';
