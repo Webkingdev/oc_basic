@@ -2,10 +2,16 @@
 .newslist__news {
 	padding-bottom: 15px;
 }
+.newslist__allnewsbtn {
+	float: right;
+}
+.newslist__news__image {
+	padding-top: 15px;
+}
 .newslist__news_newdescr {
 	height: 120px;
 	overflow: hidden;
 }
 .newslist__news_readmorebtn {
-	width: 100px;
+	width: 120px;
 }

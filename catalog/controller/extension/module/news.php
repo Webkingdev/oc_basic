@@ -20,9 +20,11 @@ class ControllerExtensionModuleNews extends Controller {
 		foreach ($all_news as $news) {
 			$data['all_news'][] = array (
 				'title' 		=> html_entity_decode($news['title'], ENT_QUOTES),
-				'description' 	=> (utf8_strlen(strip_tags(html_entity_decode($news['short_description'], ENT_QUOTES))) > 50 ? utf8_substr(strip_tags(html_entity_decode($news['short_description'], ENT_QUOTES)), 0, 50) . '...' : strip_tags(html_entity_decode($news['short_description'], ENT_QUOTES))),
+				// 'description' 	=> (utf8_strlen(strip_tags(html_entity_decode($news['short_description'], ENT_QUOTES))) > 50 ? utf8_substr(strip_tags(html_entity_decode($news['short_description'], ENT_QUOTES)), 0, 50) . '...' : strip_tags(html_entity_decode($news['short_description'], ENT_QUOTES))),
+				'description' 	=> strip_tags(html_entity_decode($news['short_description'], ENT_QUOTES)),
 				'view' 			=> $this->url->link('information/news/news', 'news_id=' . $news['news_id']),
-				'date_added' 	=> date($this->language->get('date_format_short'), strtotime($news['date_added']))
+				'date_added' 	=> date($this->language->get('date_format_short'), strtotime($news['date_added'])),
+				'image'			=> $this->model_tool_image->resize($news['image'], 250, 250),
 			);
 		}
 

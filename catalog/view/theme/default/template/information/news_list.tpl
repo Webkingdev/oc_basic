@@ -21,7 +21,7 @@
 				<?php foreach ($all_news as $news) { ?>
 					<div class="newslist__news product-thumb">
 						<div class="col-sm-3">
-							<div class="image">
+							<div class="image newslist__news__image">
 								<img class="img-responsive" src="<?php echo $news['image']; ?>">
 							</div>
 						</div>
@@ -29,7 +29,7 @@
 							<h4><a href="<?php echo $news['view']; ?>"><?php echo $news['title']; ?></a></h4>
 							<p class="newslist__news_newdescr"><?php echo $news['description']; ?></p>
 							<p><?php echo $news['date_added']; ?></p>
-							<a class="newslist__news_readmorebtn btn btn-primary btn-lg btn-block" href="<?php echo $news['view']; ?>"><?php echo $text_view; ?></a>
+							<a class="newslist__news_readmorebtn btn btn-primary btn-lg btn-block" href="<?php echo $news['view']; ?>">Подробнее</a>
 						</div>
 					</div>
 				<?php } ?>
