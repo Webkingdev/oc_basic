@@ -1,6 +1,6 @@
 <?php echo $header; ?>
 <div class="container">
-	<link type="text/css" href="catalog/view/theme/default/stylesheet/news_list.css" rel="stylesheet" media="screen" />
+	<!-- <link type="text/css" href="catalog/view/theme/default/stylesheet/news_list.css" rel="stylesheet" media="screen" /> -->
 	<ul class="breadcrumb">
 	<?php foreach ($breadcrumbs as $breadcrumb) { ?>
 	<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>

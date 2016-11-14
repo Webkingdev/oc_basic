@@ -3,6 +3,7 @@ class ControllerExtensionModuleNews extends Controller {
 	public function index() {
 		$this->language->load('extension/module/news');
 		$this->load->model('extension/news');
+		$this->document->addStyle('catalog/view/theme/default/stylesheet/news_list.css');
 
 		$filter_data = array(
 			'page' => 1,

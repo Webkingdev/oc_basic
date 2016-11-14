@@ -2,10 +2,9 @@
 class ControllerInformationNews extends Controller {
 	public function index() {
 		$this->language->load('information/news');
-
 		$this->load->model('extension/news');
-
 		$this->document->setTitle($this->language->get('heading_title'));
+		$this->document->addStyle('catalog/view/theme/default/stylesheet/news_list.css');
 
 		$data['breadcrumbs'] = array();
 

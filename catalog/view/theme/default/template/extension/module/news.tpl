@@ -1,5 +1,5 @@
 <div class="newslist panel panel-default">
-	<link type="text/css" href="catalog/view/theme/default/stylesheet/news_list.css" rel="stylesheet" media="screen" />
+	<!-- <link type="text/css" href="catalog/view/theme/default/stylesheet/news_list.css" rel="stylesheet" media="screen" /> -->
 	<div class="panel-heading">
 		<!-- <?php echo $heading_title; ?> -->
 		Последные новости
