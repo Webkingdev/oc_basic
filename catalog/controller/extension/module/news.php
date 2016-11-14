@@ -1,16 +1,16 @@
 <?php
 class ControllerExtensionModuleNews extends Controller {
-	public function index() {
+	public function index($setting) {
 		$this->language->load('extension/module/news');
 		$this->load->model('extension/news');
+		$this->load->model('tool/image');
 
 		$filter_data = array(
 			'page' => 1,
 			// 'limit' => 5,
-			'limit' => 3,
+			'limit' => $setting['limit'],
 			'start' => 0,
 		);
-
 		$data['heading_title'] = $this->language->get('heading_title');
 		$data['all_news_href'] = $this->url->link('information/news');
 
