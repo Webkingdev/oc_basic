@@ -16,7 +16,10 @@
 	<?php } ?>
 	<div id="content" class="newslist <?php echo $class; ?>">
 		<?php echo $content_top; ?>
-		<h1><?php echo $heading_title; ?></h1>
+		<h1>
+			<!-- <?php echo $heading_title; ?> -->
+			<?php echo $name; ?>
+		</h1>
 		<div class="col-sm-12">
 			<div class="row">
 				<?php foreach ($all_news as $news) { ?>

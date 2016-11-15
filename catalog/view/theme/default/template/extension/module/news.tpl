@@ -1,6 +1,7 @@
 <div class="newslist panel panel-default">
 	<div class="panel-heading">
-		<?php echo $heading_title; ?>
+		<!-- <?php echo $heading_title; ?> -->
+		<?php echo $name; ?>
 		<?php if ($show_all_news){ ?>
 			<a class="newslist__allnewsbtn" href="<?php echo $all_news_href; ?>"><?php echo $text_allnews; ?></a>
 		<?php } ?>
