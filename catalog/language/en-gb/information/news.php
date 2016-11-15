@@ -1,7 +1,7 @@
 <?php
 // Heading
 $_['heading_title'] 	= 'Our News';
- 
+
 // Text
 $_['text_title'] 		= 'Title';
 $_['text_description'] 	= 'Description';

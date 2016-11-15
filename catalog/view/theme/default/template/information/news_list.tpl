@@ -14,7 +14,8 @@
 	<?php } else { ?>
 	<?php $class = 'col-sm-12'; ?>
 	<?php } ?>
-	<div id="content" class="newslist <?php echo $class; ?>"><?php echo $content_top; ?>
+	<div id="content" class="newslist <?php echo $class; ?>">
+		<?php echo $content_top; ?>
 		<h1><?php echo $heading_title; ?></h1>
 		<div class="col-sm-12">
 			<div class="row">
@@ -29,35 +30,12 @@
 							<h4><a href="<?php echo $news['view']; ?>"><?php echo $news['title']; ?></a></h4>
 							<p class="newslist__news_newdescr"><?php echo $news['description']; ?></p>
 							<p><?php echo $news['date_added']; ?></p>
-							<a class="newslist__news_readmorebtn btn btn-primary btn-lg btn-block" href="<?php echo $news['view']; ?>">Подробнее</a>
+							<a class="newslist__news_readmorebtn btn btn-primary btn-lg btn-block" href="<?php echo $news['view']; ?>"><?php echo $text_view; ?></a>
 						</div>
 					</div>
 				<?php } ?>
 			</div>
 		</div>
-
-		<!-- <table class="table table-bordered table-striped table-hover">
-			<thead>
-				<tr>
-				<th></th>
-				<th><?php echo $text_title; ?></th>
-				<th><?php echo $text_description; ?></th>
-				<th><?php echo $text_date; ?></th>
-				<th class="text-right"></th>
-				</tr>
-			</thead>
-			<tbody>
-			<?php foreach ($all_news as $news) { ?>
-				<tr>
-				 <td style="vertical-align:middle" class="text-center"><img src="<?php echo $news['image']; ?>" /></td>
-				 <td style="vertical-align:middle"><?php echo $news['title']; ?></td>
-				 <td style="vertical-align:middle"><?php echo $news['description']; ?></td>
-				 <td style="vertical-align:middle"><?php echo $news['date_added']; ?></td>
-				 <td style="vertical-align:middle" class="text-right"><a href="<?php echo $news['view']; ?>"><?php echo $text_view; ?></a></td>
-				</tr>
-			<?php } ?>
-			</tbody>
-		</table> -->
 		<div class="row">
 			<div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
 			<div class="col-sm-6 text-right"><?php echo $results; ?></div>

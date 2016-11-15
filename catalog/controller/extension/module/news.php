@@ -9,13 +9,14 @@ class ControllerExtensionModuleNews extends Controller {
 
 		$filter_data = array(
 			'page' => 1,
-			// 'limit' => 5,
 			'limit' => $setting['limit'],
 			'start' => 0,
 		);
 		$data['format'] = $setting['format'];
 		$data['show_image'] = $setting['show_image'];
 		$data['heading_title'] = $this->language->get('heading_title');
+		$data['text_view'] = $this->language->get('text_view');
+		$data['text_allnews'] = $this->language->get('text_allnews');
 		$data['all_news_href'] = $this->url->link('information/news');
 
 		$all_news = $this->model_extension_news->getAllNews($filter_data);
@@ -25,7 +26,6 @@ class ControllerExtensionModuleNews extends Controller {
 		foreach ($all_news as $news) {
 			$data['all_news'][] = array (
 				'title' 		=> html_entity_decode($news['title'], ENT_QUOTES),
-				// 'description' 	=> (utf8_strlen(strip_tags(html_entity_decode($news['short_description'], ENT_QUOTES))) > 50 ? utf8_substr(strip_tags(html_entity_decode($news['short_description'], ENT_QUOTES)), 0, 50) . '...' : strip_tags(html_entity_decode($news['short_description'], ENT_QUOTES))),
 				'description' 	=> strip_tags(html_entity_decode($news['short_description'], ENT_QUOTES)),
 				'view' 			=> $this->url->link('information/news/news', 'news_id=' . $news['news_id']),
 				'date_added' 	=> date($this->language->get('date_format_short'), strtotime($news['date_added'])),
