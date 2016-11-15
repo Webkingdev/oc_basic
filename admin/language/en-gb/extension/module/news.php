@@ -10,6 +10,7 @@ $_['text_edit']        = 'Edit News Module';
 
 // Entry
 $_['entry_format']     = 'Block Format';
+$_['entry_show_all_news'] = 'Show All News Button';
 $_['entry_show_image'] = 'Show Thumbnail';
 $_['entry_name']       = 'Module Name';
 $_['entry_limit']      = 'Items Limit';

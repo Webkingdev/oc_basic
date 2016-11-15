@@ -44,6 +44,20 @@
             </div>
           </div>
           <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-show_all_news"><?php echo $entry_show_all_news; ?></label>
+            <div class="col-sm-10">
+              <select name="show_all_news" id="input-show_all_news" class="form-control">
+                <?php if ($show_all_news) { ?>
+                <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
+                <option value="0"><?php echo $text_disabled; ?></option>
+                <?php } else { ?>
+                <option value="1"><?php echo $text_enabled; ?></option>
+                <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
+                <?php } ?>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
             <label class="col-sm-2 control-label"><?php echo $entry_format; ?></label>
             <div class="col-sm-10">
               <label class="radio-inline">

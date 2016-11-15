@@ -12,6 +12,7 @@ class ControllerExtensionModuleNews extends Controller {
 			'limit' => $setting['limit'],
 			'start' => 0,
 		);
+		$data['show_all_news'] = $setting['show_all_news'];
 		$data['format'] = $setting['format'];
 		$data['show_image'] = $setting['show_image'];
 		$data['heading_title'] = $this->language->get('heading_title');

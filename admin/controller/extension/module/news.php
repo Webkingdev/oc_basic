@@ -30,6 +30,7 @@ class ControllerExtensionModuleNews extends Controller {
 		$data['text_disabled'] = $this->language->get('text_disabled');
 
 		$data['entry_format'] = $this->language->get('entry_format');
+		$data['entry_show_all_news'] = $this->language->get('entry_show_all_news');
 		$data['entry_show_image'] = $this->language->get('entry_show_image');
 		$data['entry_name'] = $this->language->get('entry_name');
 		$data['entry_limit'] = $this->language->get('entry_limit');
@@ -130,6 +131,14 @@ class ControllerExtensionModuleNews extends Controller {
 			$data['format'] = $module_info['format'];
 		} else {
 			$data['format'] = '';
+		}
+
+		if (isset($this->request->post['show_all_news'])) {
+			$data['show_all_news'] = $this->request->post['show_all_news'];
+		} elseif (!empty($module_info)) {
+			$data['show_all_news'] = $module_info['show_all_news'];
+		} else {
+			$data['show_all_news'] = '';
 		}
 
 		// if (isset($this->request->post['news_status'])) {
