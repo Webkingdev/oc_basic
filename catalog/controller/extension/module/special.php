@@ -10,6 +10,8 @@ class ControllerExtensionModuleSpecial extends Controller {
 		$data['button_cart'] = $this->language->get('button_cart');
 		$data['button_wishlist'] = $this->language->get('button_wishlist');
 		$data['button_compare'] = $this->language->get('button_compare');
+		$data['special'] = $this->url->link('product/special');
+		$data['text_allspecial'] = $this->language->get('text_allspecial');
 
 		$this->load->model('catalog/product');
 
