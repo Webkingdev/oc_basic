@@ -7,22 +7,20 @@
 	</div>
 	<div class="panel-body">
 		<?php
-			$sidebar_news = 1;
-			$image_class = 'col-sm-3';
-			$description_class = 'col-sm-9';
-			if ($sidebar_news === 1){
-				$image_class = 'col-sm-12';
-				$description_class = 'col-sm-12';
-			}
+			$show_image = 0;
 		?>
 		<?php foreach ($all_news as $news) { ?>
 			<div class="newslist__news product-thumb">
-				<div class="<?php echo $image_class; ?>">
-					<div class="image">
-						<img class="newslist__news__image img-responsive" src="<?php echo $news['image']; ?>">
+				<?if ($show_image === 1){?>
+					<div class="col-sm-12 newslist__news__content_col">
+				<?}else{?>
+					<div class="col-sm-3 newslist__news__image_col">
+						<div class="image">
+							<img class="newslist__news__image img-responsive" src="<?php echo $news['image']; ?>">
+						</div>
 					</div>
-				</div>
-				<div class="<?php echo $description_class; ?>">
+					<div class="col-sm-9 newslist__news__content_col">
+				<?}?>
 					<h4><a href="<?php echo $news['view']; ?>"><?php echo $news['title']; ?></a></h4>
 					<p class="newslist__news_newdescr"><?php echo $news['description']; ?></p>
 					<p><?php echo $news['date_added']; ?></p>

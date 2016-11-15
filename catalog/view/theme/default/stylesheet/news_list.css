@@ -10,7 +10,12 @@
 .newslist__news_newdescr {
 	height: 120px;
 	overflow: hidden;
+	text-align: justify;
 }
 .newslist__news_readmorebtn {
 	width: 120px;
+}
+aside .newslist__news__image_col,
+aside .newslist__news__content_col {
+	width: 100%;
 }
