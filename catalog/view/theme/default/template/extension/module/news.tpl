@@ -6,23 +6,20 @@
 		<a class="newslist__allnewsbtn" href="<?php echo $all_news_href; ?>">Все новости</a>
 	</div>
 	<div class="panel-body">
-		<?php
-			$show_image = 0;
-		?>
 		<?php foreach ($all_news as $news) { ?>
 			<div class="newslist__news product-thumb">
-				<?if ($show_image === 1){?>
-					<div class="col-sm-12 newslist__news__content_col">
-				<?}else{?>
+				<?php if ($show_image){ ?>
 					<div class="col-sm-3 newslist__news__image_col">
 						<div class="image">
 							<img class="newslist__news__image img-responsive" src="<?php echo $news['image']; ?>">
 						</div>
 					</div>
-					<div class="col-sm-9 newslist__news__content_col">
-				<?}?>
+				<?php } ?>
+				<div class="col-sm-<?php echo $show_image?9:12;?> newslist__news__content_col">
 					<h4><a href="<?php echo $news['view']; ?>"><?php echo $news['title']; ?></a></h4>
-					<p class="newslist__news_newdescr"><?php echo $news['description']; ?></p>
+					<?php if($news['description'] !== ''){ ?>
+						<p class="newslist__news_newdescr"><?php echo $news['description']; ?></p>
+					<?php } ?>
 					<p><?php echo $news['date_added']; ?></p>
 					<a class="newslist__news_readmorebtn btn btn-primary btn-lg btn-block" href="<?php echo $news['view']; ?>">Подробнее</a>
 				</div>

@@ -19,16 +19,18 @@ class ControllerExtensionModuleNews extends Controller {
 			$this->session->data['success'] = $this->language->get('text_success');
 
 			$this->response->redirect($this->url->link('extension/extension', 'token=' . $this->session->data['token'] . '&type=module', true));
-
-			// $this->model_setting_setting->editSetting('news', $this->request->post);
 		}
 
 		$data['heading_title'] = $this->language->get('heading_title');
 
+		$data['text_line'] = $this->language->get('text_line');
+		$data['text_column'] = $this->language->get('text_column');
 		$data['text_edit'] = $this->language->get('text_edit');
 		$data['text_enabled'] = $this->language->get('text_enabled');
 		$data['text_disabled'] = $this->language->get('text_disabled');
 
+		$data['entry_format'] = $this->language->get('entry_format');
+		$data['entry_show_image'] = $this->language->get('entry_show_image');
 		$data['entry_name'] = $this->language->get('entry_name');
 		$data['entry_limit'] = $this->language->get('entry_limit');
 		$data['entry_status'] = $this->language->get('entry_status');
@@ -113,6 +115,23 @@ class ControllerExtensionModuleNews extends Controller {
 		} else {
 			$data['status'] = '';
 		}
+
+		if (isset($this->request->post['show_image'])) {
+			$data['show_image'] = $this->request->post['show_image'];
+		} elseif (!empty($module_info)) {
+			$data['show_image'] = $module_info['show_image'];
+		} else {
+			$data['show_image'] = '';
+		}
+
+		if (isset($this->request->post['format'])) {
+			$data['format'] = $this->request->post['format'];
+		} elseif (!empty($module_info)) {
+			$data['format'] = $module_info['format'];
+		} else {
+			$data['format'] = '';
+		}
+
 		// if (isset($this->request->post['news_status'])) {
 		// 	$data['news_status'] = $this->request->post['news_status'];
 		// } else {

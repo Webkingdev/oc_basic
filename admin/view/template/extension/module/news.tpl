@@ -37,10 +37,37 @@
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-limit"><?php echo $entry_limit; ?></label>
             <div class="col-sm-10">
-              <input type="text" name="limit" value="<?php echo $limit; ?>" placeholder="<?php echo $entry_limit; ?>" id="input-limit" class="form-control" />
+              <input type="text" name="limit" value="<?php echo $limit?$limit:5; ?>" placeholder="<?php echo $entry_limit; ?>" id="input-limit" class="form-control" />
               <?php if ($error_limit) { ?>
               <div class="text-danger"><?php echo $error_limit; ?></div>
               <?php } ?>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label"><?php echo $entry_format; ?></label>
+            <div class="col-sm-10">
+              <label class="radio-inline">
+                <input type="radio" name="format" value="0" <?php echo $format == 1?'checked="checked"':null; ?>>
+                <?php echo $text_column; ?>
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="format" value="1" <?php echo $format == 0?'checked="checked"':null; ?>>
+                <?php echo $text_line; ?>
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-show_image"><?php echo $entry_show_image; ?></label>
+            <div class="col-sm-10">
+              <select name="show_image" id="input-show_image" class="form-control">
+                <?php if ($show_image) { ?>
+                <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
+                <option value="0"><?php echo $text_disabled; ?></option>
+                <?php } else { ?>
+                <option value="1"><?php echo $text_enabled; ?></option>
+                <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
+                <?php } ?>
+              </select>
             </div>
           </div>
           <div class="form-group">
