@@ -1,7 +1,9 @@
 <div class="newslist panel panel-default">
 	<div class="panel-heading">
 		<?php echo $heading_title; ?>
-		<a class="newslist__allnewsbtn" href="<?php echo $all_news_href; ?>"><?php echo $text_allnews; ?></a>
+		<?php if ($show_all_news){ ?>
+			<a class="newslist__allnewsbtn" href="<?php echo $all_news_href; ?>"><?php echo $text_allnews; ?></a>
+		<?php } ?>
 	</div>
 	<div class="panel-body">
 		<?php foreach ($all_news as $news) { ?>
