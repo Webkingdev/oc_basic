@@ -2,6 +2,7 @@
 class ControllerExtensionModuleSpecial extends Controller {
 	public function index($setting) {
 		$this->load->language('extension/module/special');
+		$this->document->addStyle('catalog/view/theme/default/stylesheet/special.css');
 
 		$data['heading_title'] = $this->language->get('heading_title');
 
@@ -10,6 +11,9 @@ class ControllerExtensionModuleSpecial extends Controller {
 		$data['button_cart'] = $this->language->get('button_cart');
 		$data['button_wishlist'] = $this->language->get('button_wishlist');
 		$data['button_compare'] = $this->language->get('button_compare');
+		$data['special'] = $this->url->link('product/special');
+		$data['text_allspecial'] = $this->language->get('text_allspecial');
+		$data['name'] = $setting['name'];
 
 		$this->load->model('catalog/product');
 
