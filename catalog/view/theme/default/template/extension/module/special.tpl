@@ -1,7 +1,7 @@
-<h3><?php echo $heading_title; ?></h3>
+<h3><?php echo $name; ?></h3>
 <div class="row">
 	<?php foreach ($products as $product) { ?>
-	<div class="product-layout col-lg-3 col-md-3 col-sm-6 col-xs-12">
+	<div class="product-layout col-lg-6 col-md-6 col-sm-6 col-xs-12">
 		<div class="product-thumb transition">
 			<div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
 			<div class="caption">
@@ -40,6 +40,6 @@
 	</div>
 	<?php } ?>
 	<div class="col-md-12 col-sm-12 col-xs-12">
-		<a class="btn btn-primary btn-lg btn-block" href="<?php echo $special; ?>"><?php echo $text_allspecial; ?></a>
+		<a class="allspecial_btn btn btn-primary btn-lg btn-block" href="<?php echo $special; ?>"><?php echo $text_allspecial; ?></a>
 	</div>
 </div>
