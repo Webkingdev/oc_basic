@@ -11,9 +11,9 @@
 			<add><![CDATA[
 				if ($this->user->hasPermission('access', 'extension/news')) {
 					$extension[] = array(
-						'name'	   => 'News',
+						'name'	   => $this->language->get('text_news'),
 						'href'     => $this->url->link('extension/news', 'token=' . $this->session->data['token'], true),
-						'children' => array()		
+						'children' => array()
 					);
 				}
 			]]></add>
@@ -58,7 +58,7 @@
 			<add><![CDATA[
 				if ($url[0] == 'news_id') {
 					$this->request->get['news_id'] = $url[1];
-				}	
+				}
 			]]></add>
 		</operation>
 		<operation>

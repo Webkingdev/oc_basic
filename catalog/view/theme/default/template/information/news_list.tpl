@@ -18,7 +18,6 @@
 		<?php echo $content_top; ?>
 		<h1>
 			<?php echo $heading_title; ?>
-			<!-- <?php echo $name; ?> -->
 		</h1>
 		<div class="col-sm-12">
 			<div class="row">
