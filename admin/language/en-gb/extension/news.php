@@ -17,6 +17,8 @@ $_['text_clear']				= 'Clear';
 $_['text_image_manager']		= 'Image Manager';
 $_['text_success']				= 'You have successfully modified news!';
 $_['text_edit']					= 'Edit';
+$_['text_list']					= 'News';
+
 
 // Error
 $_['error_permission'] 			= 'Warning: You do not have permission to modify news!';
