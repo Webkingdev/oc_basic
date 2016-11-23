@@ -122,6 +122,13 @@
 			<?php $class = 'col-sm-4'; ?>
 		<?php } ?>
 		<div class="<?php echo $class; ?>">
+
+
+				<?php if($special){?>
+				<p class="special_title">До завршения акции:</p>
+				<div class="countdownwrap"></div>
+			<?php } ?>
+			
 			<div class="btn-group">
 				<button type="button" data-toggle="tooltip" class="btn btn-default" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product_id; ?>');"><i class="fa fa-heart"></i></button>
 				<button type="button" data-toggle="tooltip" class="btn btn-default" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product_id; ?>');"><i class="fa fa-exchange"></i></button>

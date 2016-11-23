@@ -4,6 +4,10 @@ class ControllerCommonHeader extends Controller {
 		// Analytics
 		$this->load->model('extension/extension');
 
+				$this->document->addStyle('catalog/view/theme/default/stylesheet/special.css');
+				$this->document->addScript('catalog/view/theme/default/javascript/special.js');
+			
+
 
 		$data['analytics'] = array();
 
