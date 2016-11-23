@@ -2,7 +2,6 @@
 class ControllerExtensionModuleSpecial extends Controller {
 	public function index($setting) {
 		$this->load->language('extension/module/special');
-		$this->document->addStyle('catalog/view/theme/default/stylesheet/special.css');
 
 		$data['heading_title'] = $this->language->get('heading_title');
 

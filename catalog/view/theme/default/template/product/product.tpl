@@ -123,6 +123,7 @@
 		<?php } ?>
 		<div class="<?php echo $class; ?>">
 			<?php if($special){?>
+				<p class="special_title">До завршения акции:</p>
 				<div class="countdownwrap"></div>
 			<?php } ?>
 			<div class="btn-group">
