@@ -18,6 +18,6 @@ $_['text_image_manager']		= 'Image Manager';
 $_['text_success']				= 'Вы успешно изменили новость!';
 $_['text_edit']					= 'Изменить';
 $_['text_list']					= 'Новости';
-
+$_['text_news']                 = 'Новости';
 // Error
 $_['error_permission'] 			= 'Внимание: У Вас нет прав на редактирование новостей!';

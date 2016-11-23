@@ -190,6 +190,7 @@ class ControllerCommonColumnLeft extends Controller {
 
 
 				if ($this->user->hasPermission('access', 'extension/news')) {
+					$this->load->language('extension/news');
 					$extension[] = array(
 						'name'	   => $this->language->get('text_news'),
 						'href'     => $this->url->link('extension/news', 'token=' . $this->session->data['token'], true),

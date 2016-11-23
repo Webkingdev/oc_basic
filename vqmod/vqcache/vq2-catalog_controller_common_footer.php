@@ -17,8 +17,9 @@ class ControllerCommonFooter extends Controller {
 		$data['text_special'] = $this->language->get('text_special');
 		$data['text_account'] = $this->language->get('text_account');
 
+				$this->load->language('extension/module/news');
 				$data['news'] = $this->url->link('information/news');
-				$data['text_news'] = $this->language->get('text_news');
+				$data['text_news'] = $this->language->get('heading_title');
 			
 		$data['text_order'] = $this->language->get('text_order');
 		$data['text_wishlist'] = $this->language->get('text_wishlist');

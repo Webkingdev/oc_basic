@@ -40,7 +40,7 @@ class ControllerStartupSeoUrl extends Controller {
 
 				if ($url[0] == 'news_id') {
 					$this->request->get['news_id'] = $url[1];
-				}	
+				}
 			
 					if ($url[0] == 'information_id') {
 						$this->request->get['information_id'] = $url[1];

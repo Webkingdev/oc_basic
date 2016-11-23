@@ -10,6 +10,7 @@
 			]]></search>
 			<add><![CDATA[
 				if ($this->user->hasPermission('access', 'extension/news')) {
+					$this->load->language('extension/news');
 					$extension[] = array(
 						'name'	   => $this->language->get('text_news'),
 						'href'     => $this->url->link('extension/news', 'token=' . $this->session->data['token'], true),
@@ -25,18 +26,9 @@
 				$data['text_account']
 			]]></search>
 			<add><![CDATA[
+				$this->load->language('extension/module/news');
 				$data['news'] = $this->url->link('information/news');
-				$data['text_news'] = $this->language->get('text_news');
-			]]></add>
-		</operation>
-	</file>
-	<file name="catalog/language/*/common/footer.php">
-		<operation>
-			<search position="after" index="1"><![CDATA[
-				$_
-			]]></search>
-			<add><![CDATA[
-				$_['text_news'] = 'Our News';
+				$data['text_news'] = $this->language->get('heading_title');
 			]]></add>
 		</operation>
 	</file>
