@@ -747,19 +747,3 @@ h2.price {
     background-image: none;
     background-color: #df5c39;
 }
-
-/* Countdown */
-.special_countdown {
-	padding-bottom: 10px;
-}
-.special_countdown,
-.special_countdown .number_block {
-	display: flex;
-	justify-content: center;
-}
-.special_countdown .number_block {
-	width: 24%;
-}
-.special_countdown .number_title {
-	margin-right: 5px;
-}

@@ -123,25 +123,6 @@
 		<?php } ?>
 		<div class="<?php echo $class; ?>">
 			<?php if($special){?>
-				<div id="CDT" class="special_countdown">
-					<p>АКЦИЯ!!!!!!!</p>
-					<div class="number_block">
-						<div class="number_title">Дней:</div>
-						<div class="number_day"></div>
-					</div>
-					<div class="number_block">
-						<div class="number_title">Часов:</div>
-						<div class="number_hour"></div>
-					</div>
-					<div class="number_block">
-						<div class="number_title">Минут:</div>
-						<div class="number_min"></div>
-					</div>
-					<div class="number_block">
-						<div class="number_title">Секунд:</div>
-						<div class="number_sec"></div>
-					</div>
-				</div>
 				<div class="countdownwrap"></div>
 			<?php } ?>
 			<div class="btn-group">
