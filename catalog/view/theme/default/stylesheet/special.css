@@ -11,3 +11,7 @@
 	font-size: 25px;
 	padding-bottom: 5px;
 }
+.countdownwrap canvas {
+	margin: 10px auto;
+    display: block;
+}

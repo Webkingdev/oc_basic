@@ -32,6 +32,9 @@ var ringer = {
   init: function(){
     $r = ringer;
     $r.cvs = document.createElement('canvas');
+    //Определение ширины блока для респонсива
+    var block_width = $(".countdownwrap").width();
+    $r.r_size = block_width / 5;
     $r.size = {
       w: ($r.r_size + $r.r_thickness) * $r.r_count + ($r.r_spacing*($r.r_count-1)),
       h: ($r.r_size + $r.r_thickness)
@@ -90,11 +93,10 @@ var ringer = {
     // label
     $r.ctx.fillStyle = "#000000";
 
-    $r.ctx.font = '12px Helvetica';
-    $r.ctx.fillText(label, 0, 20);
-    // $r.ctx.fillText(label, 0, 15);
+    $r.ctx.font = '10px Helvetica';
+    $r.ctx.fillText(label, 0, 15);
 
-    $r.ctx.font = 'bold 30px Helvetica';
+    $r.ctx.font = 'bold 20px Helvetica';
     $r.ctx.fillText(Math.floor(value), 0, 5);
 
     $r.ctx.restore();
